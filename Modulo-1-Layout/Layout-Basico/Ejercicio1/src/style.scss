@@ -1,0 +1,87 @@
+@import "variables.scss";
+
+body{background-color: rgb(228, 226, 226);}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 10px 20px;
+  background-color: rgb(31, 131, 109);
+  box-shadow: 0 0 10px black;
+  color: #fff;
+  font-family: sans-serif;
+
+  .container-title > .title-excercise {
+    font-size: 24px;
+  }
+  .container-author > .author-name{
+    font-size: 18px;
+  }
+}
+@for $i from 1 through 3{
+  .container-#{$i} {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15px;
+    margin: 50px;
+  }
+}
+
+.box{
+  border-radius: 15px;
+  padding: 30px 5px 30px 5px;
+}
+
+.color-box-text{
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.container-1 > .base-color {background-color: $base_color1};
+.container-2 > .base-color {background-color: $base_color2};
+.container-3 > .base-color {background-color: $base_color3};
+
+@for $i from 1 through 4{
+  .container-1 > .darken-#{$i}{
+    background-color: darken($base_color1, $i * 10);
+  }
+}
+@for $i from 1 through 4{
+  .container-1 > .lighten-#{$i}{
+    background-color: lighten($base_color1, $i * 10);
+  }
+}
+
+@for $j from 1 through 4{
+  .container-2 > .darken-#{$j}{
+    background-color: darken($base_color2, $j * 10);
+  }
+}
+
+@for $j from 1 through 4{
+  .container-2 > .lighten-#{$j}{
+    background-color: lighten($base_color2, $j * 10);
+  }
+}
+
+@for $h from 1 through 4{
+  .container-3 > .darken-#{$h}{
+    background-color: darken($base_color3, $h * 10);
+  }
+}
+
+@for $h from 1 through 4{
+  .container-3 > .lighten-#{$h}{
+    background-color: lighten($base_color3, $h * 10);
+  }
+}
