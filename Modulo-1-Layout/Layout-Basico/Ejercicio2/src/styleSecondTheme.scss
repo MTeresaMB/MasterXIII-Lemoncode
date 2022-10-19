@@ -1,0 +1,27 @@
+@import "variables.scss";
+
+body{background-color: rgb(228, 226, 226);}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 10px 20px;
+  background-color: rgb(31, 131, 109);
+  box-shadow: 0 0 10px black;
+  color: #fff;
+  font-family: sans-serif;
+
+  .container-title > .title-excercise {
+    font-size: 24px;
+  }
+  .container-author > .author-name{
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,72 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body{background-color: rgb(228, 226, 226);}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 10px 20px;
+  background-color: rgb(31, 131, 109);
+  box-shadow: 0 0 10px black;
+  color: #fff;
+  font-family: sans-serif;
+
+  .container-title > .title-excercise {
+    font-size: 24px;
+  }
+  .container-author > .author-name{
+    font-size: 18px;
+  }
+}
+
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  
+  .box-1{
+    background-color: $box-1;
+    color: white;
+    @include box-size;
+    @include align-text;
+  }
+  .box-2{
+    background-color: $box-2;
+    color: white;
+    @include box-size;
+    @include align-text;
+  }
+  
+  .box-3{
+    background-color: $box-3;
+    color: white;
+    @include box-size;
+    @include align-text;
+  }
+  
+  .box-shadow{
+    background-color: $box-shadow;
+    box-shadow: -9px 9px 12px rgb(61, 61, 61);
+    @include box-size;
+    @include align-text;
+  }
+  .principal-font{
+    > .font-1{
+      font-family: 'Montserrat', sans-serif;
+    }
+
+  }
+}
+
