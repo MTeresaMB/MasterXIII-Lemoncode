@@ -1,0 +1,30 @@
+@mixin navbarDesktop{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: #fff;
+  font-family: sans-serif;
+  background-color: rgb(45, 140, 156);
+  padding: 20px;
+    > li {
+      > a{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+}
+
+@mixin navbarMobile{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: #fff;
+  font-family: sans-serif;
+  background-color: rgb(45, 140, 156);
+  gap: 10px;
+  padding: 10px;
+}

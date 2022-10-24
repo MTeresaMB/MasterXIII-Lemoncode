@@ -1,0 +1,25 @@
+@import "mixin.scss";
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.header{
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.links{
+  @include navbarDesktop;
+}
+
+.links > li > a:hover{
+  background-color: red;
+}
+@media (max-width: 480px){
+  .links{
+    @include navbarMobile;
+  }
+}
