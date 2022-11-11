@@ -1,8 +1,6 @@
-@import "variablesFirstTheme.scss";
-@import "mixin.scss";
+@use "variablesFirstTheme" as vf;
+@use "mixin" as m;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 body{background-color: rgb(228, 226, 226);}
 
@@ -21,37 +19,37 @@ body{background-color: rgb(228, 226, 226);}
   }
 }
 .container{
-  @include container;
+  @include m.container;
   
   .box-1{
-    background-color: $box-1;
+    background-color: vf.$box-1;
     color: white;
-    font-family: 'Montserrat', sans-serif;
-    @include box-size;
-    @include align-text;
+    font-family: vf.$font-montserrat;
+    @include m.box-size;
+    @include m.align-text;
   }
   .box-2{
-    background-color: $box-2;
+    background-color: vf.$box-2;
     color: white;
-    font-family: 'Montserrat', sans-serif;
-    @include box-size;
-    @include align-text;
+    font-family: vf.$font-montserrat;
+    @include m.box-size;
+    @include m.align-text;
   }
   
   .box-3{
-    background-color: $box-3;
+    background-color: vf.$box-3;
     color: white;
-    font-family: 'Montserrat', sans-serif;
-    @include box-size;
-    @include align-text;
+    font-family: vf.$font-montserrat;
+    @include m.box-size;
+    @include m.align-text;
   }
   
   .box-shadow{
-    background-color: $box-shadow;
-    font-family: 'Montserrat', sans-serif;
+    background-color: vf.$box-shadow;
+    font-family: vf.$font-montserrat;
     box-shadow: -9px 9px 12px rgb(61, 61, 61);
-    @include box-size;
-    @include align-text;
+    @include m.box-size;
+    @include m.align-text;
     >span{
       padding: 16px;
     }
@@ -59,13 +57,13 @@ body{background-color: rgb(228, 226, 226);}
   .principal-font{
     margin: 10px;
     > .font-1{
-      font-family: 'Montserrat', sans-serif;
+      font-family: vf.$font-montserrat;
     }
   }
   .secondary-font{
     margin: 10px;
     > .font-2{
-      font-family: 'Playfair Display', serif;
+      font-family: vf.$font-playfair;
     }
   }
 }

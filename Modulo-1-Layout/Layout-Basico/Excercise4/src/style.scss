@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
-$font-card: 'Roboto', sans-serif;
+@use "variables" as v;
 
 *{
   box-sizing: border-box;
 }
 
 .container {
-  background-color: rgb(235, 235, 235);
+  background-color: v.$color-bgContainer;
   width: 350px;
   height: 600px;
   display: grid;
@@ -16,9 +15,9 @@ $font-card: 'Roboto', sans-serif;
 .card{
   width: 88%;
   height: 580px;
-  background-color: #fff;
+  background-color: v.$color-white;
   display: grid;
-  border: 1px solid rgb(207, 206, 206);
+  border: 1px solid v.$color-borderCard;
 }
 
 .card-img > img{
@@ -33,7 +32,7 @@ $font-card: 'Roboto', sans-serif;
   margin-left: 10px;
 
   > .title{
-    font-family: $font-card;
+    font-family: v.$font-card;
     font-weight: 400;
     font-size: 28px;
   }
@@ -41,7 +40,7 @@ $font-card: 'Roboto', sans-serif;
 
 .card-body{
   margin: 10px;
-  font-family: $font-card;
+  font-family: v.$font-card;
   font-weight: 300;
   line-height: 1.5;
 }
@@ -49,20 +48,20 @@ $font-card: 'Roboto', sans-serif;
 .published{
   margin-right: 10px;
   text-align: right;
-  font-family: $font-card;
+  font-family: v.$font-card;
   font-weight: 400;
   > .published-date span{
-    color:  rgb(92, 160, 53);
+    color: v.$color-info;
   }
 }
 .button-info{
   margin: 10px;
   padding: 11px;
   text-align: center;
-  background-color: rgb(92, 160, 53);
+  background-color: v.$color-info;
   > span{
-    font-family: $font-card;
+    font-family: v.$font-card;
     font-size: 1.3em;
-    color: #fff;
+    color: v.$color-white;
   }
 }
