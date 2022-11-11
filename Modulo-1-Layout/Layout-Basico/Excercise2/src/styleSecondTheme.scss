@@ -45,7 +45,7 @@ body{background-color: rgb(228, 226, 226);}
   }
 
   .box-shadow{
-    background-color: $box-shadow;
+    background-color: vs.$box-shadow;
     font-family: vs.$font-poppins;
     box-shadow: 10px 9px 12px rgb(61, 61, 61);
     @include m.box-size;
@@ -63,7 +63,7 @@ body{background-color: rgb(228, 226, 226);}
   .secondary-font{
     margin: 10px;
     > .font-2{
-      font-family: cs.$font-lora;
+      font-family: vs.$font-lora;
     }
   }
 
