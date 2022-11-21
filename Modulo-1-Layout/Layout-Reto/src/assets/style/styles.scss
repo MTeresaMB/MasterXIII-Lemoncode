@@ -1,0 +1,119 @@
+@use "variables" as v;
+
+body{
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 160px 1fr 20px;
+  grid-template-areas: "header" "main" "footer";
+}
+
+header{
+  background-color: v.$color-background;
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  color: v.$color-font;
+  font-family: v.$font-base;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  > .header-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    > img{
+      width: 125px;
+    }
+    
+    > .platform-title{
+      font-family: v.$font-base;
+      font-size: 22px;
+      margin: 15px;
+    }
+  }
+
+  > .header-buttons {
+    display: flex;
+    div {
+        width: 70px;
+        height: 40px;
+        text-align: center;
+        font-family: v.$font-base;
+        font-size: 18px;  
+        padding-top: 23px;
+        border-radius: 5px;
+      }
+      div:hover{
+        background-color: v.$color-button-header;
+        color: blue;
+        text-align: center;
+      }
+  }
+}
+
+main{
+  grid-area: main;
+  background-color: v.$color-background;
+}
+
+.section-title{
+  color: v.$color-font;
+  font-family: v.$font-base;
+  padding: 20px;
+}
+
+.top{
+  display: flex;
+  flex-direction: row-reverse;
+  .top-item{
+    flex-grow: 1;
+    min-width: 225px;
+
+    img{width: 100%;}
+  }
+}
+
+.first, .second{
+  display: flex;
+  flex-wrap: wrap;
+  .item{
+    flex: 1;
+    min-width: 250px;
+  }
+  .item:hover{
+    transform: scale(1.15);
+  }
+  img{width: 100%;}
+}
+
+footer{
+  grid-area: footer;
+  background-color: v.$color-background;
+}
+
+@media screen and (min-width: 1281px){
+  #top-text::after{
+    content: "5";   
+  }
+}
+
+@media screen and (max-width: 1280px){
+  .platform-title{display: none;}
+
+  #top-text::after{content: "3";}
+
+  .top div:nth-child(-n+2){display: none;}
+}
+
+@media screen and (max-width: 530px){
+  .top {flex-direction: column-reverse;}
+}
