@@ -1,4 +1,4 @@
-import "./00 practice/exercise.js";
+import "./00 javascript-fundamentals/exercise.js";
 import "./01 deliverables/exercise-01.js";
 import "./01 deliverables/exercise-02.js";
 import "./01 deliverables/exercise-03.js";
