@@ -12,6 +12,6 @@
     "@parcel/transformer-sass": "^2.8.0",
     "cssnano": "^5.1.14",
     "parcel": "^2.8.0",
-    "sass": "^1.26.5"
+    "sass": "^1.56.1"
   }
 }

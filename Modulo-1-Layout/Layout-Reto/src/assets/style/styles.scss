@@ -3,7 +3,7 @@
 body{
   padding: 0;
   margin: 0;
-  height: 100vh;
+  // height: 100vh;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
@@ -115,8 +115,11 @@ footer{
   #top-text::after{content: "3";}
 
   .top div:nth-child(-n+2){display: none;}
+
 }
 
 @media screen and (max-width: 670px){
   .top {flex-direction: column-reverse;}
+  body{width: 100%;}
+
 }
