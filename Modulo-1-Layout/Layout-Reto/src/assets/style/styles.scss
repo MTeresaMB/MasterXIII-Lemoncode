@@ -120,6 +120,6 @@ footer{
 
 @media screen and (max-width: 670px){
   .top {flex-direction: column-reverse;}
-  body{width: 100%;}
+  body{height: fit-content;}
 
 }
