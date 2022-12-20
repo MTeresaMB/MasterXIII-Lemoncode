@@ -80,11 +80,11 @@ function merge(source, target) {
 }
 
 // Por ejemplo, dados estos 2 objetos:
-var a = { name: "Maria", surname: "Ibañez", country: "SPA" };
-var b = { name: "Luisa", age: 31, married: true };
+var objeto_a = { name: "Maria", surname: "Ibañez", country: "SPA" };
+var objeto_b = { name: "Luisa", age: 31, married: true };
 
 // El resultado de mezclar a sobre b sería:
-console.log(merge(a, b)); // {name: "Maria", age: 31, married: true, surname: "Ibañez", country: "SPA"}
+console.log(merge(objeto_a, objeto_b)); // {name: "Maria", age: 31, married: true, surname: "Ibañez", country: "SPA"}
 
 
 console.log("****** EXCERCISE 5 - Deep Equal ******");
@@ -120,38 +120,157 @@ function isEqual(a, b) {
 }
 
 console.log(isEqual(user, clonedUser)); // true
-console.log("****** EXCERCISE 14 - Values ******");
 
-// Basic
-const serieTv = {
-  name: 'X-files',
-  year: 1994,
-  seasons: 11
-};
 
-const showValues = (serieTv) => Object.values(serieTv);
+// console.log("****** EXCERCISE 6 - Dices ******");
+const buttonRollDice = document.querySelector('#rollDice');
+buttonRollDice.addEventListener('click', () => {
+  console.log("****** EXCERCISE 6 - Dices ******");
+  const min = 1;
+  const max = 6;
+  let dice_1 : number;
+  let dice_2 : number;
 
-console.log(showValues(serieTv));
+  function resetDice_1 () {
+    dice_1 = null;
+    return dice_1;
+  }
+  function resetDice_2 () {
+    dice_2 = null;
+    return dice_2;
+  }
 
-//Challenge
-function SerieTv(name, year, season){
-  this.name = name;
-  this.year = year;
-  this.seasons = season;
-}
+  function getRandom(min : number, max : number){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
-SerieTv.prototype.getValues = function(){
-  console.log("Name of Series TV: " + this.name 
-  + " Year: " + this.year 
-  + " Seasons: " + this.seasons);
-};
+  function rollDice_1(){
+    dice_1 = getRandom(min, max);
+    console.log("The result of dice 1 is: " + dice_1);
+    return dice_1;
+  }
 
-let serie1 = new SerieTv("Game of Thrones", 2011, 8);
-let serie2 = new SerieTv("Brooklyn 99", 2013, 8);
+  function rollDice_2(){
+    dice_2 = getRandom(min, max);
+    console.log("The result of dice 2 is: " + dice_2);
+    return dice_2;
+  }
 
-serie1.getValues();
-serie2.getValues();
-console.log(serie1);
-console.log(serie2);
-// console.log(showValues(serie1));
-// console.log(showValues(serie2));
+  function prizeDoubleSix(){
+    if(dice_1 === 6 && dice_2 === 6) {
+      console.log("You have won a prize");
+    }
+  }
+
+  rollDice_1();
+  rollDice_2();
+  prizeDoubleSix();
+  resetDice_1();
+  resetDice_2();
+})
+
+
+
+console.log("****** EXCERCISE 7 - Values ******");
+
+// Apartado A
+
+// function f() {
+//   console.log(a); // Undefined
+//   console.log(g()); // Undefined
+
+//   var a = "good job!";
+//   function g() {
+//     return a;
+//   }
+//   console.log(a); // Good Job!
+// }
+
+// f();
+
+// Los dos Undefined son porque se estan llamando a la variable a y a la funcion g
+// antes de ser declaradas
+
+// El good job! porque ya ha sido declarada e inicializada la variable a
+
+// Apartado B
+
+// var a = 1;
+
+// (function() {
+//   console.log(a); // Undefined
+//   var a = 2;
+//   b = 4;
+//   var c = 3;
+// })();
+
+// console.log(a); // 1
+// console.log(b); // 4 
+// console.log(c); // Error c is not defined
+
+// Undefined porque se esta llamando a una variable que no esta definida dentro 
+// de la funcion autoejecutable y aunque sea una variable var solo tienen ambito
+// en la funcion
+
+// El segundo console.log(a) -> con valor 1 es porque esta tomando la inicializacion de la variable
+// anterior a la funcion 
+
+// En el tercer console.log(b) -> con valor 4 es porque es una varible de ambito global, por lo que se tendra
+// utilizar fuera de la funcion
+
+// En el ultimo console.log(c) -> lanza un error de que la variable no esta definida, porque solo esta declarada e inicializada
+// en el ambito de la funcion, por lo que no se podria utilizar fuera de ella.
+
+// Apartada C 
+
+// f();
+// var a = 1;
+
+// function f() {
+//   console.log(a); // Undefined
+//   b = 4;
+//   var c = 3;
+// }
+
+// console.log(a); // 1
+// console.log(b); // 4
+// console.log(c); // Error c is not defined
+
+// Los resultados son los mismos que en el apartado B, aunque se usa el hoisting, los resultados
+// no cambian 
+
+// console.log("****** EXCERCISE 14 - Values ******");
+
+// // Basic
+// const serieTv = {
+//   name: 'X-files',
+//   year: 1994,
+//   seasons: 11
+// };
+
+// const showValues = (serieTv) => Object.values(serieTv);
+
+// console.log(showValues(serieTv));
+
+// //Challenge
+// function SerieTv(name, year, season){
+//   this.name = name;
+//   this.year = year;
+//   this.seasons = season;
+// }
+
+// SerieTv.prototype.getValues = function(){
+//   console.log("Name of Series TV: " + this.name 
+//   + " Year: " + this.year 
+//   + " Seasons: " + this.seasons);
+// };
+
+// let serie1 = new SerieTv("Game of Thrones", 2011, 8);
+// let serie2 = new SerieTv("Brooklyn 99", 2013, 8);
+
+// serie1.getValues();
+// serie2.getValues();
+// console.log(serie1);
+// console.log(serie2);
+// // console.log(showValues(serie1));
+// // console.log(showValues(serie2));
