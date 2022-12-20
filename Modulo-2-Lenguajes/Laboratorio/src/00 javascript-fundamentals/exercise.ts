@@ -1,7 +1,7 @@
 console.log("****** EXCERCISES JAVASCRIPT FUNDAMENTALS ******");
 console.log("****** EXCERCISE 01 - biggestWord ******");
 
-function biggestWord(phrase){
+function biggestWord(phrase : string){
   const splitWords = phrase.split(" ");
   let resultWord = "";
   
@@ -30,9 +30,9 @@ const eso2o = {
   Carmen: 8,
 };
 
-const lengthOfObject = object => Object.keys(object).length;
+const lengthOfObject = (object: {}) => Object.keys(object).length;
 
-function media (eso2o, lengthOfObject){
+function media (eso2o: { [x: string]: number; David: any; Maria?: any; Jose?: any; Juan?: any; Blanca?: any; Carmen?: any; }, lengthOfObject: { (object: any): number; (object: any): number; (arg0: any): number; }){
   var media = 0;
   for(var key in eso2o){
     media += eso2o[key];
@@ -67,14 +67,14 @@ console.log(checkResults(null));
 
 console.log("****** EXCERCISE 4 - Clone Merge ******");
 //Apartado A 
-function clone (source){
+function clone (source: { David: number; Maria: number; Jose: number; Juan: number; Blanca: number; Carmen: number; }){
   const cloneSource = {...source};
   return cloneSource;
 }
 console.log(clone(eso2o));
 
 //Apartado B 
-function merge(source, target) {
+function merge(source: { name: string; surname: string; country: string; }, target: { name: string; age: number; married: boolean; }) {
   const cloneMerge = {...target, ...source};
   return cloneMerge;
 }
@@ -95,7 +95,7 @@ var clonedUser = { name: "María", age: 30 };
 
 console.log(user === clonedUser); // false
 
-function isEqual(a, b) {
+function isEqual(a: { name?: string; age?: number; hasOwnProperty?: any; }, b: { name?: string; age?: number; hasOwnProperty?: any; }) {
   //primera solucion
   // return JSON.stringify(a) === JSON.stringify(b);
 
@@ -124,12 +124,12 @@ console.log(isEqual(user, clonedUser)); // true
 
 // console.log("****** EXCERCISE 6 - Dices ******");
 const buttonRollDice = document.querySelector('#rollDice');
-buttonRollDice.addEventListener('click', () => {
+buttonRollDice?.addEventListener('click', () => {
   console.log("****** EXCERCISE 6 - Dices ******");
   const min = 1;
   const max = 6;
-  let dice_1 : number;
-  let dice_2 : number;
+  let dice_1 : any;
+  let dice_2 : any;
 
   function resetDice_1 () {
     dice_1 = null;
@@ -168,8 +168,6 @@ buttonRollDice.addEventListener('click', () => {
   resetDice_1();
   resetDice_2();
 })
-
-
 
 console.log("****** EXCERCISE 7 - Values ******");
 
@@ -239,21 +237,121 @@ console.log("****** EXCERCISE 7 - Values ******");
 // Los resultados son los mismos que en el apartado B, aunque se usa el hoisting, los resultados
 // no cambian 
 
+console.log("****** EXCERCISE 8 - Includes ******");
+
+function includes(array : any[], value : number) {
+  return array.includes(value);
+}
+
+// Ejemplo:
+console.log(includes([1, 2, 3], 3)); // true
+console.log(includes([1, 2, 3], 0)); // false
+
+// Challenge
+
+function includes2(array : any[], value : number) {
+  return array.indexOf(value) !== -1;
+}
+
+// Ejemplo:
+console.log(includes2([1, 2, 3], 3)); // true
+console.log(includes2([1, 2, 3], 0)); // false
+
+
+console.log("****** EXCERCISE 9 - Primes ******");
+
+function isPrime(number : number){
+  if(number <= 1) return false;
+  for(let i = 2; i <= number - 1; i++){
+    if(number % i == 0) return false;
+  }
+  return true;
+}
+
+function showPrimes(from : number, to : number){
+  for(let i = from; i <= to; i++){
+    console.log(i + (isPrime(i) ? " is prime number " : " is not a prime number"));
+  }
+}
+
+// showPrimes(1,100);
+
+// Challange
+function isPrimeSqrt(number : number){
+  if(number <= 1) return false;
+  for(let i = 2; i <= Math.sqrt(number); i++){
+    if(number % i == 0) return false;
+  }
+  return true;
+}
+showPrimes(1,100);
+
+console.log("****** EXCERCISE 10 - Read Book ******");
+
+function isBookRead(books: any[], titleToSearch: string) {
+  let findByTitle = books.find(book => book.title === titleToSearch);
+
+  return Boolean(findByTitle) && findByTitle.isRead;
+}
+
+// Ejemplo:
+var books = [
+  { title: "Harry Potter y la piedra filosofal", isRead: true },
+  { title: "Canción de hielo y fuego", isRead: false },
+  { title: "Devastación", isRead: true },
+];
+
+console.log(isBookRead(books, "Devastación")); // true
+console.log(isBookRead(books, "Canción de hielo y fuego")); // false
+console.log(isBookRead(books, "Los Pilares de la Tierra")); // false
+
+console.log("****** EXCERCISE 11 - Reverse Text ******");
+
+function reverseText(text : string) {
+  return text.split(" ").reverse().join(" ");
+}
+
+console.log(reverseText("Se hace en 1 sola línea"));
+
+console.log("****** EXCERCISE 12 - Subsets ******");
+
+function subsets(word : string) {
+  let arr = [];
+  for(let i = 0; i < word.length - 1; i++) {
+    arr.push(word.substring(i + 1));
+  }
+  return arr;
+}
+
+console.log(subsets("message")); // ["essage", "ssage", "sage", "age", "ge", "e"]
+
+// Challange 
+
+// function subsets2(word : string) {
+//   let arr = Array(word.length).fill([word]).flat();
+//   let i = 0;
+//   let aux = "";
+//   arr.forEach(element => (aux += "," + element.slice(i = i + 1)));
+//   let result = aux.substring(1, aux.length-1)
+//   return result.split(" ");
+// }
+
+// console.log(subsets2("message"));
 // console.log("****** EXCERCISE 14 - Values ******");
 
-// // Basic
+// Basic
 // const serieTv = {
 //   name: 'X-files',
 //   year: 1994,
 //   seasons: 11
 // };
 
-// const showValues = (serieTv) => Object.values(serieTv);
+// const showValues = (serieTv: { [s: string]: unknown; } | ArrayLike<unknown>) => Object.values(serieTv);
 
 // console.log(showValues(serieTv));
 
 // //Challenge
-// function SerieTv(name, year, season){
+// function SerieTv(name: string, year: number, season: number){
 //   this.name = name;
 //   this.year = year;
 //   this.seasons = season;
@@ -272,5 +370,5 @@ console.log("****** EXCERCISE 7 - Values ******");
 // serie2.getValues();
 // console.log(serie1);
 // console.log(serie2);
-// // console.log(showValues(serie1));
-// // console.log(showValues(serie2));
+// console.log(showValues(serie1));
+// console.log(showValues(serie2));

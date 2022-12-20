@@ -5,7 +5,9 @@
     "module": "esnext",
     "watch": true,
     "allowJs": true,
-    "outDir": "transpiled"
+    "outDir": "transpiled",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
   },
   "compileOnSave": true,
   "exclude": ["node_modules"],
