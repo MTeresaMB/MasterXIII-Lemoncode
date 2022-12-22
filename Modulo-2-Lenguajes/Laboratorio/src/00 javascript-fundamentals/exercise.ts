@@ -274,7 +274,7 @@ function showPrimes(from : number, to : number){
   }
 }
 
-// showPrimes(1,100);
+showPrimes(1,100);
 
 // Challange
 function isPrimeSqrt(number : number){
@@ -327,17 +327,17 @@ console.log(subsets("message")); // ["essage", "ssage", "sage", "age", "ge", "e"
 
 // Challange 
 
-// function subsets2(word : string) {
-//   let arr = Array(word.length).fill([word]).flat();
-//   let i = 0;
-//   let aux = "";
-//   arr.forEach(element => (aux += "," + element.slice(i = i + 1)));
-//   let result = aux.substring(1, aux.length-1)
-//   return result.split(" ");
-// }
+function subsets2(word : string) {
+  let arr = Array(word.length).fill([word]).flat();
+  let i = 0;
+  let aux = "";
+  arr.forEach(element => (aux += "," + element.slice(i = i + 1)));
+  let result = aux.substring(1, aux.length-1)
+  return result.split(" ");
+}
 
-// console.log(subsets2("message"));
-// console.log("****** EXCERCISE 14 - Values ******");
+console.log(subsets2("message"));
+console.log("****** EXCERCISE 14 - Values ******");
 
 // Basic
 // const serieTv = {
