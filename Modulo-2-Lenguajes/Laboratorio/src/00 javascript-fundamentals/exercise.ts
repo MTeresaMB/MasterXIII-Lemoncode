@@ -327,16 +327,13 @@ console.log(subsets("message")); // ["essage", "ssage", "sage", "age", "ge", "e"
 
 // Challange 
 
-function subsets2(word : string) {
-  let arr = Array(word.length).fill([word]).flat();
-  let i = 0;
-  let aux = "";
-  arr.forEach(element => (aux += "," + element.slice(i = i + 1)));
-  let result = aux.substring(1, aux.length-1)
-  return result.split(" ");
+function subsetsChallenge(word : string) {
+  const words = word.split("").slice(1);
+  return words.map((letters, index) => words.join("").slice(index));
 }
 
-console.log(subsets2("message"));
+console.log(subsetsChallenge("message"));
+
 console.log("****** EXCERCISE 14 - Values ******");
 
 // Basic
