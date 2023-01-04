@@ -334,38 +334,90 @@ function subsetsChallenge(word : string) {
 
 console.log(subsetsChallenge("message"));
 
+
+console.log("****** EXCERCISE 13 - This ******");
+
+// var surname = "Pérez";
+// var person = {
+//   name: "Juan",
+//   surname: "González",
+//   wife: {
+//     name: "Ana",
+//     surname: "Jiménez",
+//     getSurname: function() {
+//       return this.surname;
+//     },
+//   },
+// };
+
+// console.log(person.wife.getSurname()); // Jimenez
+// var surnameFunction = person.wife.getSurname;
+// console.log(surnameFunction()); // Pérez
+// console.log(surnameFunction.call(person)); // González
+
 console.log("****** EXCERCISE 14 - Values ******");
 
 // Basic
-// const serieTv = {
-//   name: 'X-files',
-//   year: 1994,
-//   seasons: 11
-// };
+const serieTv = {
+  name: 'X-files',
+  year: 1994,
+  seasons: 11
+};
 
-// const showValues = (serieTv: { [s: string]: unknown; } | ArrayLike<unknown>) => Object.values(serieTv);
+const showValues = (serieTv: {} ) => Object.values(serieTv);
 
-// console.log(showValues(serieTv));
+console.log(showValues(serieTv));
 
-// //Challenge
-// function SerieTv(name: string, year: number, season: number){
-//   this.name = name;
-//   this.year = year;
-//   this.seasons = season;
-// }
+//Challenge
+function SerieTv(name : string, year : number, seasons : number) {
+  this.name = name;
+  this.year = year;
+  this.seasons = seasons;
+}
 
-// SerieTv.prototype.getValues = function(){
-//   console.log("Name of Series TV: " + this.name 
-//   + " Year: " + this.year 
-//   + " Seasons: " + this.seasons);
-// };
+SerieTv.prototype.call = function() {
+  console.log("The winter is coming");
+}
 
-// let serie1 = new SerieTv("Game of Thrones", 2011, 8);
-// let serie2 = new SerieTv("Brooklyn 99", 2013, 8);
+var serie1 = new SerieTv("Game of Thrones", 2011, 8);
+console.log(serie1)
 
-// serie1.getValues();
-// serie2.getValues();
-// console.log(serie1);
-// console.log(serie2);
-// console.log(showValues(serie1));
-// console.log(showValues(serie2));
+console.log("****** EXCERCISE 15 - Zip ******");
+
+
+function zipObject(keys: (string | number)[], values: (string | number)[]) {
+  let objAux = {};
+  keys.forEach ((key: string | number, index: string | number) => {
+    objAux[key] = values[index];
+  });
+  return objAux;
+}
+
+function zipObjectChallenge(keys : (string | number)[], values : (string | number)[]) {
+  let objAux = {};
+  values.forEach((value: string | number, index: string | number) => {
+    objAux[keys[index]] = values;
+  });
+  return objAux;
+}
+// Ejemplo
+console.log(zipObject(["spanish", "english", "french"], ["hola", "hi", "salut"])); // {spanish: "hola", english: "hi", french: "salut"}
+console.log(zipObjectChallenge(["spanish", "english", "french"], ["hola"])); // {spanish: "hola"}
+
+console.log("****** EXCERCISE 16 - ZZCrypt ******");
+
+// Descifra el siguiente secreto:
+var secret = "': rg!qg yq,urae: ghsrf wuran shrerg jq,u'qf ra r' ,qaq' er g'q,o rg,fuwurae: m!hfua( t'usqfuq ,:apu(:m xv";
+
+// Sabiendo que el alfabeto original ha sufrido la siguiente transformación:
+var plain = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
+var cipher = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
+
+function decrypt(secret: string) {
+  return secret.split("").map(decryptChar).join("");
+}
+
+function decryptChar(char: string){
+  return (char === " ") ? " " : plain[cipher.indexOf(char)];
+}
+console.log(decrypt(secret));
