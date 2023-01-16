@@ -2,7 +2,8 @@ console.log("************** DELIVERABLE 05 *********************");
 console.log("************** Slot Machine *********************");
 
 class SlotMachine {
-  constructor(coins){
+  coins: number;
+  constructor(coins: number){
     this.coins = coins;
   }
 

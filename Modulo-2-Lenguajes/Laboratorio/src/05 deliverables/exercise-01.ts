@@ -7,13 +7,13 @@ console.log("************** Array Operations *********************");
 let array = ["Harry", "Ronald", "Hermione"];
 
 // Destructuring con arrays
-const head = (array) => {
+const head = (array: unknown[]) => {
   const [first] = array; 
   return first;
 }
 
 // Destructuring en argumentos de funcion
-const getHead = ([first]) => first;
+const getHead = ([first]: unknown[]) => first;
 
 console.log(head(array));
 console.log(getHead(array));
@@ -21,14 +21,14 @@ console.log(getHead(array));
 // 02. Tail
 // Implementa una función tail (inmutable), tal que, dado un array como entrada devuelta todos menos el primer elemento. Utiliza rest operator.
 
-const tail = ([array, ...second]) => second; // Implementation here.
+const tail = ([, ...second]: unknown[]) => second; // Implementation here.
 
 console.log(tail(array));
 
 // 02. Init
 // Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
 
-const init = (array) => array.slice(0, array.length - 1);
+const init = (array: unknown[]) => array.slice(0, array.length - 1);
 console.log(init(array)); 
 
 

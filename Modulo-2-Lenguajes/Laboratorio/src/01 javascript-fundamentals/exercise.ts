@@ -32,7 +32,7 @@ const eso2o = {
 
 const lengthOfObject = (object: {}) => Object.keys(object).length;
 
-function media (eso2o: {}, lengthOfObject){
+function media (eso2o: {}, lengthOfObject: (object:{}) => number) {
   var media = 0;
   for(var key in eso2o){
     media += eso2o[key];

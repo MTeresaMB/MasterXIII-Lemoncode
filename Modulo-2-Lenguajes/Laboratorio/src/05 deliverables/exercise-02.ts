@@ -5,10 +5,11 @@ console.log("************** Concat *********************");
 const array1 = [1, 2, 3];
 const array2 = [6, 7, 8];
 
-const concat = (a, b) => [...a, ...b];
+const concat = (a: (string | number)[], b: (string | number)[]) => [...a, ...b];
 console.log(concat(array1, array2));
 
-// Challenge to concat
+// Challenge 
 
-const concatChallenge = (a, b, ...args) => a.concat(b, ...args);
+const concatChallenge = (a: (string | number)[], b: (string | number)[], ...args: (string | number)[]) => a.concat(b, ...args);
+
 console.log(concatChallenge(array1, array2, "hola"));
