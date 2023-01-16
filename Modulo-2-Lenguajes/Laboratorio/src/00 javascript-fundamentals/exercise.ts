@@ -1,7 +1,7 @@
 console.log("****** EXCERCISES JAVASCRIPT FUNDAMENTALS ******");
 console.log("****** EXCERCISE 01 - biggestWord ******");
 
-function biggestWord(phrase){
+function biggestWord(phrase: string){
   const splitWords = phrase.split(" ");
   let resultWord = "";
   
@@ -30,9 +30,9 @@ const eso2o = {
   Carmen: 8,
 };
 
-const lengthOfObject = (object) => Object.keys(object).length;
+const lengthOfObject = (object: {}) => Object.keys(object).length;
 
-function media (eso2o, lengthOfObject){
+function media (eso2o: {}, lengthOfObject){
   var media = 0;
   for(var key in eso2o){
     media += eso2o[key];
@@ -40,7 +40,7 @@ function media (eso2o, lengthOfObject){
   let totalMedia = media / lengthOfObject(eso2o);
   return totalMedia;
 }
-function mediaClasificacion (media) {
+function mediaClasificacion (media: number) {
   var result = "";
   if(media == 10) result = "Matricula de Honor";
   else if(media < 10 && media >9) result = "Sobresaliente";
@@ -59,7 +59,7 @@ mediaClasificacion(media(eso2o, lengthOfObject));
 
 console.log("****** EXCERCISE 3 - Check Arguments ******");
 
-const checkResults = (input) => input === undefined ? "Unknown" : input === null ? "" : input;
+const checkResults = (input: unknown) => input === undefined ? "Unknown" : input === null ? "" : input;
 
 console.log(checkResults("hola"));
 console.log(checkResults(undefined));
@@ -67,14 +67,14 @@ console.log(checkResults(null));
 
 console.log("****** EXCERCISE 4 - Clone Merge ******");
 //Apartado A 
-function clone (source){
+function clone (source: {}){
   const cloneSource = {...source};
   return cloneSource;
 }
 console.log(clone(eso2o));
 
 //Apartado B 
-function merge(source, target) {
+function merge(source: {}, target: {}) {
   const cloneMerge = {...target, ...source};
   return cloneMerge;
 }
@@ -95,7 +95,7 @@ var clonedUser = { name: "María", age: 30 };
 
 console.log(user === clonedUser); // false
 
-function isEqual(a, b) {
+function isEqual(a: {}, b: {}) {
   //primera solucion
   // return JSON.stringify(a) === JSON.stringify(b);
 
@@ -128,8 +128,8 @@ buttonRollDice?.addEventListener('click', () => {
   console.log("****** EXCERCISE 6 - Dices ******");
   const min = 1;
   const max = 6;
-  let dice_1;
-  let dice_2;
+  let dice_1: number | null;
+  let dice_2: number | null;;
 
   function resetDice_1 () {
     dice_1 = null;
@@ -140,7 +140,7 @@ buttonRollDice?.addEventListener('click', () => {
     return dice_2;
   }
 
-  function getRandom(min, max){
+  function getRandom(min: number, max: number){
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
@@ -239,7 +239,7 @@ console.log("****** EXCERCISE 7 - Values ******");
 
 console.log("****** EXCERCISE 8 - Includes ******");
 
-function includes(array, value) {
+function includes(array: number[], value: number) {
   return array.includes(value);
 }
 
@@ -249,7 +249,7 @@ console.log(includes([1, 2, 3], 0)); // false
 
 // Challenge
 
-function includes2(array, value) {
+function includes2(array: number[], value: number) {
   return array.indexOf(value) !== -1;
 }
 
@@ -260,7 +260,7 @@ console.log(includes2([1, 2, 3], 0)); // false
 
 console.log("****** EXCERCISE 9 - Primes ******");
 
-function isPrime(number){
+function isPrime(number: number){
   if(number <= 1) return false;
   for(let i = 2; i <= number - 1; i++){
     if(number % i == 0) return false;
@@ -268,7 +268,7 @@ function isPrime(number){
   return true;
 }
 
-function showPrimes(from, to){
+function showPrimes(from: number, to: number){
   for(let i = from; i <= to; i++){
     console.log(i + (isPrime(i) ? " is prime number " : " is not a prime number"));
   }
@@ -277,7 +277,7 @@ function showPrimes(from, to){
 showPrimes(1,100);
 
 // Challange
-function isPrimeSqrt(number){
+function isPrimeSqrt(number: number){
   if(number <= 1) return false;
   for(let i = 2; i <= Math.sqrt(number); i++){
     if(number % i == 0) return false;
@@ -288,7 +288,7 @@ showPrimes(1,100);
 
 console.log("****** EXCERCISE 10 - Read Book ******");
 
-function isBookRead(books, titleToSearch: string) {
+function isBookRead(books: Books[], titleToSearch: string) {
   let findByTitle = books.find(book => book.title === titleToSearch);
 
   return Boolean(findByTitle) && findByTitle.isRead;
@@ -306,7 +306,7 @@ console.log(isBookRead(books, "Los Pilares de la Tierra")); // false
 
 console.log("****** EXCERCISE 11 - Reverse Text ******");
 
-function reverseText(text) {
+function reverseText(text: string) {
   return text.split(" ").reverse().join(" ");
 }
 
@@ -326,7 +326,7 @@ console.log(subsets("message")); // ["essage", "ssage", "sage", "age", "ge", "e"
 
 // Challange 
 
-function subsetsChallenge(word) {
+function subsetsChallenge(word: string) {
   const words = word.split("").slice(1);
   return words.map((letters, index) => words.join("").slice(index));
 }
@@ -363,28 +363,15 @@ const serieTv = {
   seasons: 11
 };
 
-const showValues = (serieTv) => Object.values(serieTv);
+const showValues = (serieTv: {}) => Object.values(serieTv);
 
 console.log(showValues(serieTv));
 
-//Challenge
-function SerieTv(name, year, seasons) {
-  this.name = name;
-  this.year = year;
-  this.seasons = seasons;
-}
-
-SerieTv.prototype.call = function() {
-  console.log("The winter is coming");
-}
-
-var serie1 = new SerieTv("Game of Thrones", 2011, 8);
-console.log(serie1)
 
 console.log("****** EXCERCISE 15 - Zip ******");
 
 
-function zipObject(keys, values) {
+function zipObject(keys: string[], values: unknown[]) {
   let objAux = {};
   keys.forEach ((key, index) => {
     objAux[key] = values[index];
@@ -392,7 +379,7 @@ function zipObject(keys, values) {
   return objAux;
 }
 
-function zipObjectChallenge(keys, values) {
+function zipObjectChallenge(keys: unknown[], values: unknown[]) {
   let objAux = {};
   values.forEach((value, index) => {
     objAux[keys[index]] = values;
@@ -412,11 +399,11 @@ var secret = "': rg!qg yq,urae: ghsrf wuran shrerg jq,u'qf ra r' ,qaq' er g'q,o 
 var plain = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 var cipher = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
-function decrypt(secret) {
+function decrypt(secret: string) {
   return secret.split("").map(decryptChar).join("");
 }
 
-function decryptChar(char){
+function decryptChar(char: string){
   return (char === " ") ? " " : plain[cipher.indexOf(char)];
 }
 console.log(decrypt(secret));
