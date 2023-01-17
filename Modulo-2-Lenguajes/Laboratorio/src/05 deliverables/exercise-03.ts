@@ -24,4 +24,4 @@ function mergeB(source : {}, target : {}){
   return mergeSourceMerge;
 }
 
-console.log(mergeB(a, b));
+console.log(mergeB(objA, objB));
