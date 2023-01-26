@@ -1,6 +1,22 @@
-.text{
-  color: red;
+#text{
+  p{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 32px;
+  }
 }
 img{
   width: 200px;
+}
+
+#imgContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgContainerHtml{
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
