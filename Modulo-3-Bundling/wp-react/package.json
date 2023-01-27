@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MTeresaMB/MasterXIII-Lemoncode.git#main"
+    "url": "https://github.com/MTeresaMB/MasterXIII-Lemoncode/tree/main/Modulo-3-Bundling/wp-react"
   },
   "author": "MTeresaMB",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MTeresaMB/MasterXIII-Lemoncode/issues"
   },
-  "homepage": "https://github.com/MTeresaMB/MasterXIII-Lemoncode/tree/main#readme",
+  "homepage": "https://github.com/MTeresaMB/MasterXIII-Lemoncode/tree/main/Modulo-3-Bundling/wp-react",
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
