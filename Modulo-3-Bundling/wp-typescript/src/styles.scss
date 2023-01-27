@@ -1,22 +1,21 @@
+@use "mixin" as m;
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+$colorFont: rgb(37, 30, 30);
+$familyFont: 'Source Code Pro', monospace;
+
+
 #text{
-  p{
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-size: 32px;
-  }
-}
-img{
-  width: 200px;
+  color: $colorFont;
+  text-align: center;
+  font-size: 32px;
+  margin: 10px;
+  font-family: $familyFont;
 }
 
 #imgContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.imgContainerHtml{
-  width: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include m.flexPositions;
+  > img{
+    width: 300px;
+  }
 }
