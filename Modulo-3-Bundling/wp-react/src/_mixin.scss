@@ -1,0 +1,12 @@
+@mixin flexPositions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin positionText{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+}

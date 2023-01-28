@@ -1,0 +1,40 @@
+@use 'mixin' as m;
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
+
+$background: indianred;
+$color-title: white;
+$fontTitle: 'Source Code Pro', monospace;
+$fontParagraph: 'Explora', cursive;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.title{
+  font-size: 35px;
+  background-color: $background;
+  color: $color-title;
+  font-family: $fontTitle;
+  @include m.positionText;
+}
+
+.textParagraph{
+  @include m.positionText;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: $fontParagraph;
+}
+
+.imgContainer{
+  @include m.flexPositions;
+  .img_1{
+    width: 200px;
+  }
+}
+
+:global(.card){
+  width: 18rem;
+  margin: auto;
+}
