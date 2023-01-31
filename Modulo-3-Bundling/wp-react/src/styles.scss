@@ -1,11 +1,10 @@
 @use 'mixin' as m;
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
 
 $background: indianred;
+$background-hover: rgb(114, 18, 18);
 $color-title: white;
-$fontTitle: 'Source Code Pro', monospace;
-$fontParagraph: 'Explora', cursive;
+$fontTitle: Times, serif;
+$fontParagraph: Verdana, sans-serif;
 
 *{
   margin: 0;
@@ -23,7 +22,6 @@ $fontParagraph: 'Explora', cursive;
 .textParagraph{
   @include m.positionText;
   font-size: 30px;
-  font-weight: bold;
   font-family: $fontParagraph;
 }
 
@@ -34,7 +32,3 @@ $fontParagraph: 'Explora', cursive;
   }
 }
 
-:global(.card){
-  width: 18rem;
-  margin: auto;
-}
