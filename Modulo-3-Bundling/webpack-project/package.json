@@ -1,0 +1,11 @@
+{
+  "name": "webpackproject",
+  "version": "1.0.0",
+  "description": "Laboratorio bundling proyecto semilla con soporte para typescript y react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MTeresaMB",
+  "license": "ISC"
+}
