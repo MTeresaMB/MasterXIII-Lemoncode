@@ -1,5 +1,19 @@
+$background: indianred;
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.title{
+  background-color: $background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: white;
+}
+.paragraph{
+  text-align: center;
+  margin: 10px;
 }
