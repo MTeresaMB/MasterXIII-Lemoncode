@@ -4,8 +4,10 @@
   "description": "Laboratorio bundling proyecto semilla con soporte para typescript y react",
   "main": "index.js",
   "scripts": {
-    "start": "run-p -l type-check:watch start:prod",
-    "build": "run-p -l type-check build:prod",
+    "start": "run-p -l type-check:watch start:dev",
+    "start:dev": "webpack serve --config webpack.dev.js",
+    "start:prod": "webpack serve --config webpack.prod.js",
+    "build": "run-p -l type-check build:dev",
     "build:prod": "webpack --config webpack.prod.js",
     "build:dev": "webpack serve --config webpack.dev.js",
     "type-check": "tsc --noEmit",
