@@ -1,7 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.js');
 const {merge} = require('webpack-merge');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -15,26 +14,26 @@ module.exports = merge(common, {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
-            options:{
+            options: {
               modules: {
+                localIdentName: '[path][name]__[local]___[hash:base64:5]',
+                localIdentContext: path.resolve(__dirname, 'src'),
                 exportLocalsConvention: 'camelCase',
-              },
-            },
+              }
+            }
           },
           'sass-loader',
         ],
       },
+      
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].[chunkhash].css',
-    }),
-    new Dotenv({
-      path: './prod.env',
     }),
   ],
   optimization: {

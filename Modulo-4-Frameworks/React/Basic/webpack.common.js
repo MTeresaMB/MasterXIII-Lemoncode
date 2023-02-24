@@ -1,18 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const basePath = __dirname;
+
 module.exports = {
-  context: path.join(basePath, 'src'),
+  context: path.join(basePath, "src"),
   resolve: {
     extensions: ['.js', '.tsx', '.ts','.jsx'],
   },
   entry: {
-    app: './index.tsx',
+    app: ['./index.tsx'],
   },
   output:{
     filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: "/",
   },
   module:{
     rules: [
@@ -22,7 +24,7 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpg)$/,
         type: 'asset/resource',
       },
       {
@@ -35,8 +37,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
-      filename: 'index.html',
+      filename: './index.html',
       scriptLoading: 'blocking',
+      hash: true
     }),
   ]
 }
