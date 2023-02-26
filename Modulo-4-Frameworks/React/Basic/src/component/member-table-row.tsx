@@ -1,6 +1,6 @@
-import { TableCell, TableRow } from '@mui/material';
+import { TableCell} from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, generatePath } from 'react-router-dom';
 import { MemberEntity } from '../model/MemberEntity';
 
 interface Props {
@@ -12,9 +12,11 @@ export const MemberTableRow: React.FC<Props> = (props) => {
 
   return (
     <>
-      <TableCell><img src={member.avatar_url} alt="avatar" style={{width: 100}}/></TableCell>
+      <TableCell><img src={member.avatar_url} alt="avatar"/></TableCell>
       <TableCell>{member.id}</TableCell>
-      <TableCell><Link to="/detail">{member.login}</Link></TableCell>
+      <TableCell><Link to={generatePath("/detail/:id",{id:member.login} )}>{member.login}</Link></TableCell>
+      <TableCell>{member.url}</TableCell> 
+      <TableCell>{member.html_url}</TableCell>
     </>
   )
 }

@@ -36,9 +36,11 @@ export const MemberTable = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Avatar</TableCell>
+              <TableCell>AVATAR</TableCell>
               <TableCell align="left">ID</TableCell>
-              <TableCell align="left">Name</TableCell>
+              <TableCell align="left">NAME</TableCell>
+              <TableCell align="left">URL</TableCell>
+              <TableCell align="left">HTML_URL</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

@@ -8,7 +8,7 @@ module.exports = {
     extensions: ['.js', '.tsx', '.ts','.jsx'],
   },
   entry: {
-    app: ['./index.tsx'],
+    app: ['./index.tsx','./index.scss'],
   },
   output:{
     filename: '[name].[chunkhash].js',
