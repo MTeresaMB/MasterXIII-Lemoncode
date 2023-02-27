@@ -1,8 +1,7 @@
 import React from "react";
-import { MemberEntity } from "../model/MemberEntity";
+import { MemberEntity } from "../../model/MemberEntity";
 import { MemberTableRow } from "./member-table-row";
 import { OrganizationSearch } from "./organization-search";
-
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';

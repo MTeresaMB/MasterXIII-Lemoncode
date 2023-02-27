@@ -7,6 +7,7 @@ interface Props{
   onSearch: (organizationName: string) => void;
 }
 
+
 export const OrganizationSearch: React.FC<Props> = (props) => {
   const {onSearch} = props;
   const [organizationName, setOrganizationName] = React.useState('Lemoncode');
@@ -30,6 +31,7 @@ export const OrganizationSearch: React.FC<Props> = (props) => {
       <Button variant="contained" onClick={() => onSearch(organizationName)} sx={{minHeight:53}}>
       Search
       </Button>
+
   </Box>
 
   )

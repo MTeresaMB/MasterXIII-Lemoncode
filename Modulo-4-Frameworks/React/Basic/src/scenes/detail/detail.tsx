@@ -1,14 +1,8 @@
 import React from 'react';
-import {Link, useParams} from 'react-router-dom';
-//import { MemberDetailEntity } from '../model/MemberDetailEntity';
+import { Link, useParams } from 'react-router-dom';
+import { MemberDetailEntity } from '../../model/MemberDetailEntity';
+import { routes } from '@/core';
 
-interface MemberDetailEntity{
-  id:string;
-  login: string;
-  name:string;
-  company: string;
-  bio: string;
-}
 const createDefaultMemberDetail = () => ({
   id: '',
   login: '',
@@ -37,7 +31,7 @@ export const DetailPage: React.FC = () => {
       <p>name: {member.name}</p>
       <p>company: {member.company}</p>
       <p>bio: {member.bio}</p>
-      <Link to= "/member-table">Back to list member page</Link>
+      <Link to= {routes.list}>Back to list member page</Link>
     </>
   )
 }

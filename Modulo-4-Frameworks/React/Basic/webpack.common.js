@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const basePath = __dirname;
 
 module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
-    extensions: ['.js', '.tsx', '.ts','.jsx'],
+    extensions: ['.js', '.tsx', '.ts','.jsx','.scss'],
+    plugins: [new TsconfigPathsPlugin()]
   },
   entry: {
     app: ['./index.tsx','./index.scss'],
@@ -24,7 +26,7 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|svg)$/,
         type: 'asset/resource',
       },
       {

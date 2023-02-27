@@ -23,7 +23,24 @@ module.exports = merge(common, {
           },
           'sass-loader',
         ]
-      }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]__[local]___[hash:base64:5]',
+                localIdentContext: path.resolve(__dirname, 'src'),
+                exportLocalsConvention: 'camelCase',
+              }
+            }
+          },
+        ]
+      },
     ]
   },
   devServer: {
