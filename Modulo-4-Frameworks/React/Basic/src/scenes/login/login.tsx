@@ -3,6 +3,7 @@ import { AccountCircle } from "@mui/icons-material";
 import { Box, FormControl, InputAdornment, TextField, Button} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/core";
+import classes from "@/styles/login-style.scss";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,9 +19,9 @@ export const LoginPage: React.FC = () => {
     }
   };
   return (
-
-    <Box sx={{ width: 300, height: 300,"& > :not(style)": { m: 2} }}>
-      <FormControl variant="standard" >
+    <Box className={classes.container}>
+    <p className={classes.title}>LogIn React Laboratory of Lemoncode</p>
+      <FormControl variant="standard" className={classes.form}>
         <TextField value={username} onChange={e => setUsername(e.target.value)}
           id="input-with-icon-textfield"
           label="Username"
@@ -31,8 +32,8 @@ export const LoginPage: React.FC = () => {
               </InputAdornment>
             ),
           }}
-          variant="standard"
-        />
+          variant="outlined"
+        className={classes.input} required/>
 
         <TextField value={password} onChange={e => setPassword(e.target.value)}
           id="input-with-icon-textfield"
@@ -44,10 +45,10 @@ export const LoginPage: React.FC = () => {
               </InputAdornment>
             ),
           }}
-          variant="standard"
-        />
+          variant="outlined"
+        className={classes.input} required/>
       </FormControl>
-      <Button variant="contained" onClick={handleNavigation}>Log In</Button>
+      <Button variant="contained" onClick={handleNavigation} className={classes.button}>Log In</Button>
     </Box>
   );
 };

@@ -1,7 +1,8 @@
 import React from "react";
-import { MemberEntity } from "../../model/MemberEntity";
+import { MemberEntity } from "@/model/MemberEntity";
 import { MemberTableRow } from "./member-table-row";
 import { OrganizationSearch } from "./organization-search";
+import classes from '@/styles/list-style.scss';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -31,21 +32,19 @@ export const MemberTable = () => {
   return (
     <>
       <OrganizationSearch onSearch={handleSearch}/>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+      <TableContainer className={classes.tableContainer} component={Paper}>
+        <Table className={classes.table} aria-label="simple table" >
+          <TableHead className={classes.tableHead}>
             <TableRow>
-              <TableCell>AVATAR</TableCell>
-              <TableCell align="left">ID</TableCell>
-              <TableCell align="left">NAME</TableCell>
-              <TableCell align="left">URL</TableCell>
-              <TableCell align="left">HTML_URL</TableCell>
+              <TableCell className={classes.tableCell} align="center">AVATAR</TableCell>
+              <TableCell className={classes.tableCell} align="center">ID</TableCell>
+              <TableCell className={classes.tableCell} align="center">NAME</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {members.map((member) => (
-              <TableRow key={member.id}>
-                <MemberTableRow key={member.id} member={member} />
+              <TableRow key={member.id} className={classes.tableRow}>
+                <MemberTableRow key={member.id} member={member}  />
               </TableRow>
             ))}
           </TableBody>

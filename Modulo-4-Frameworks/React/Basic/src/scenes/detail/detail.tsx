@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { MemberDetailEntity } from '../../model/MemberDetailEntity';
 import { routes } from '@/core';
+import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
+import classes from "@/styles/detail-style.scss";
 
 const createDefaultMemberDetail = () => ({
   id: '',
@@ -15,6 +17,10 @@ const createDefaultMemberDetail = () => ({
 export const DetailPage: React.FC = () => {
   const [member, setMembers] = React.useState<MemberDetailEntity>(createDefaultMemberDetail());
   const {id} = useParams();
+  const navigate = useNavigate();
+  const handleNavigation = () => {
+    return navigate(routes.list);
+  }
 
   React.useEffect(() => {
     fetch(`https://api.github.com/users/${id}`)
@@ -24,14 +30,28 @@ export const DetailPage: React.FC = () => {
 
   return (
     <>
-      <h2>Hello from Detail Page</h2>
-      <h3>UserId: {id}</h3>
-      <p>id: {member.id}</p>
-      <p>login: {member.login}</p>
-      <p>name: {member.name}</p>
-      <p>company: {member.company}</p>
-      <p>bio: {member.bio}</p>
-      <Link to= {routes.list}>Back to list member page</Link>
+    <Card className={classes.card} >
+      <CardContent>
+        <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+          Detail Page of User Information
+        </Typography>
+        <Typography variant="h4" component="div">
+          {member.name}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {member.id}
+        </Typography>
+        <Typography variant="body2">
+          {member.company}
+          <br />
+          {member.bio}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="large" onClick={handleNavigation}>Back to list member page</Button>
+      </CardActions>
+    </Card>
     </>
   )
 }
+
