@@ -9,6 +9,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { AppBar, Toolbar, Typography } from "@mui/material";
 
+
+
 interface Props {
   onSearch: (organizationName: string) => void;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CharacterTable } from '@/scenes/rickMorty/character-list';
+import { CharacterTable } from './character-table';
 
 export const ListPageRickMorty: React.FC = () =>{
   return (
