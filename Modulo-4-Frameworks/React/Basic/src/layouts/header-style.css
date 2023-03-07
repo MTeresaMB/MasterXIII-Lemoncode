@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.containerHeader{
+  display: flex;
+  justify-content: space-between;
+  background-color: indianred;
+  height: 50px;
+}
+

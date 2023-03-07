@@ -5,11 +5,10 @@ import { routes } from "@/core";
 import {
   Button,
   Card,
-  CardActions,
   CardContent,
   Typography,
 } from "@mui/material";
-import classes from "@/styles/detail-style.scss";
+import classes from "./detail-style.css";
 import { HeaderLayout } from "@/layouts";
 
 const createDefaultMemberDetail = () => ({
@@ -38,7 +37,12 @@ export const DetailPage: React.FC = () => {
 
   return (
     <>
-    <HeaderLayout>
+      <HeaderLayout>
+        <span>Detail page</span>
+        <Button className={classes.buttonCard} onClick={handleNavigation}>
+          Back to list member page
+        </Button>
+      </HeaderLayout>
       <Card className={classes.card}>
         <CardContent>
           <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
@@ -56,13 +60,7 @@ export const DetailPage: React.FC = () => {
             {member.bio}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="large" onClick={handleNavigation}>
-            Back to list member page
-          </Button>
-        </CardActions>
       </Card>
-      </HeaderLayout>
     </>
   );
 };

@@ -2,16 +2,7 @@ import React from "react";
 import { MemberEntity } from "@/model/MemberEntity";
 import { MemberTableRow } from "./member-table-row";
 import { OrganizationSearch } from "./organization-search";
-import classes from '@/styles/list-style.scss';
-
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
+import { HeaderLayout } from "@/layouts";
 
 export const MemberTable = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
@@ -32,24 +23,22 @@ export const MemberTable = () => {
   return (
     <>
       <OrganizationSearch onSearch={handleSearch}/>
-      <TableContainer className={classes.tableContainer} component={Paper}>
-        <Table className={classes.table} aria-label="simple table" >
-          <TableHead className={classes.tableHead}>
-            <TableRow>
-              <TableCell className={classes.tableCell} align="center">AVATAR</TableCell>
-              <TableCell className={classes.tableCell} align="center">ID</TableCell>
-              <TableCell className={classes.tableCell} align="center">NAME</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
+        <table>
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>ID</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
             {members.map((member) => (
-              <TableRow key={member.id} className={classes.tableRow}>
-                <MemberTableRow key={member.id} member={member}  />
-              </TableRow>
+              <tr key={member.id}>
+                <MemberTableRow key={member.id} member={member}/>
+              </tr>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+          </tbody>
+        </table>
     </>
   );
 };

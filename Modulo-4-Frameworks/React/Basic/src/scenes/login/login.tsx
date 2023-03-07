@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/core";
-import classes from "@/styles/login-style.scss";
+import classes from "./login-style.css";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();

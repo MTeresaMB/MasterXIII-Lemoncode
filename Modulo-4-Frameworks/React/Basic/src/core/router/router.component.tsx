@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { switchRoutes } from "./routes";
-import { LoginPage, ListPage, DetailPage } from "@/scenes";
-import { ListPageRickMorty } from "@/scenes/rickMorty/listCharacter";
+import { LoginPage, ListPage, DetailPage, ListPageRickMorty } from "@/scenes";
 
 export const RouterComponent: React.FC = () => {
   return (

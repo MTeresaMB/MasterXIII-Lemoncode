@@ -1,1 +1,1 @@
-export * from './headerLayout';
+export * from './header.layout';

@@ -44,7 +44,7 @@ module.exports = merge(common, {
     ]
   },
   devServer: {
-    port: 8080,
+    port: 8081,
     open: true,
     devMiddleware: {
       stats: "errors-only",

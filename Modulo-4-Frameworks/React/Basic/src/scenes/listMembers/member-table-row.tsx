@@ -1,23 +1,27 @@
-import { routes } from '@/core';
-import { TableCell} from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import React from 'react';
-import { Link} from 'react-router-dom';
-import { MemberEntity } from '@/model/MemberEntity';
-import classes from '@/styles/list-style.scss';
+import React from "react";
+import { routes } from "@/core";
+import { Link } from "react-router-dom";
+import { MemberEntity } from "@/model/MemberEntity";
+import { TableCell, Avatar } from "@mui/material";
+
+//styles & material UI
 
 interface Props {
   member: MemberEntity;
 }
 
 export const MemberTableRow: React.FC<Props> = (props) => {
-  const {member} = props;
+  const { member } = props;
 
   return (
     <>
-      <TableCell className={classes.avatarContainer}><Avatar className={classes.avatar} src={member.avatar_url} alt="avatar"/></TableCell>
-      <TableCell className={classes.cell}>{member.id}</TableCell>
-      <TableCell className={classes.cell}><Link to={routes.details(member.login)}>{member.login}</Link></TableCell>
+      <TableCell>
+        <Avatar src={member.avatar_url} alt="avatar" />
+      </TableCell>
+      <TableCell>{member.id}</TableCell>
+      <TableCell>
+        <Link to={routes.details(member.login)}>{member.login}</Link>
+      </TableCell>
     </>
-  )
-}
+  );
+};
