@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "@/core";
 import classes from "./login-style.css";
 
-export const LoginPage: React.FC = () => {
+export const LoginPageContainer: React.FC = () => {
   const navigate = useNavigate();
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");

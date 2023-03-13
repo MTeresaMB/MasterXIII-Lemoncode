@@ -19,7 +19,7 @@ const createDefaultMemberDetail = () => ({
   bio: "",
 });
 
-export const DetailPage: React.FC = () => {
+export const DetailPageContainer: React.FC = () => {
   const [member, setMembers] = React.useState<MemberDetailEntity>(
     createDefaultMemberDetail()
   );

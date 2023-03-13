@@ -2,7 +2,6 @@ import React from "react";
 import { MemberEntity } from "@/model/MemberEntity";
 import { MemberTableRow } from "./member-table-row";
 import { OrganizationSearch } from "./organization-search";
-import { HeaderLayout } from "@/layouts";
 
 export const MemberTable = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
