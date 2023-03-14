@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/core";
-import classes from "./login-style.css";
 
 export const LoginPageContainer: React.FC = () => {
   const navigate = useNavigate();
@@ -25,9 +24,9 @@ export const LoginPageContainer: React.FC = () => {
     }
   };
   return (
-      <Box className={classes.container}>
-        <p className={classes.title}>LogIn React Laboratory of Lemoncode</p>
-        <FormControl variant="standard" className={classes.form}>
+      <Box>
+        <p>LogIn React Laboratory of Lemoncode</p>
+        <FormControl variant="standard">
           <TextField
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -43,7 +42,6 @@ export const LoginPageContainer: React.FC = () => {
             focused
             required
             variant="outlined"
-            className={classes.input}
           />
 
           <TextField
@@ -60,13 +58,11 @@ export const LoginPageContainer: React.FC = () => {
             }}
             required
             variant="outlined"
-            className={classes.input}
           />
         </FormControl>
         <Button
           variant="contained"
           onClick={handleNavigation}
-          className={classes.button}
         >
           Log In
         </Button>

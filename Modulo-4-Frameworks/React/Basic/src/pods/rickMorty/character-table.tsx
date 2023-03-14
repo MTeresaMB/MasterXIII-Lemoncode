@@ -1,4 +1,5 @@
 import React from "react";
+
 import { CharacterTableRow } from "./character-table-row";
 import { CharacterEntity } from "@/model/CharacterEntity";
 
