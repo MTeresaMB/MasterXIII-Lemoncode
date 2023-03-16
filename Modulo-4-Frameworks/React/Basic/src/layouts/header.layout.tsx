@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./header-style.css";
+import classes from "./header.layout.style.css";
 
 interface Props {
   children: React.ReactNode;

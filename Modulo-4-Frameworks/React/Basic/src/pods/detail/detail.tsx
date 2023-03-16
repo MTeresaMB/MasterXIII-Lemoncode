@@ -1,23 +1,11 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { MemberDetailEntity } from "../../model/MemberDetailEntity";
+import { createDefaultMemberDetail, MemberDetailEntity } from "../../model/MemberDetailEntity";
 import { routes } from "@/core";
-import {
-  Button,
-  Card,
-  CardContent,
-  Typography,
-} from "@mui/material";
-import classes from "./detail-style.css";
+import { Button, Card, CardContent, Typography} from "@mui/material";
 import { HeaderLayout } from "@/layouts";
+import classes from './detail-style.css';
 
-const createDefaultMemberDetail = () => ({
-  id: "",
-  login: "",
-  name: "",
-  company: "",
-  bio: "",
-});
 
 export const DetailPageContainer: React.FC = () => {
   const [member, setMembers] = React.useState<MemberDetailEntity>(
@@ -25,6 +13,7 @@ export const DetailPageContainer: React.FC = () => {
   );
   const { id } = useParams();
   const navigate = useNavigate();
+
   const handleNavigation = () => {
     return navigate(routes.list);
   };
@@ -33,15 +22,13 @@ export const DetailPageContainer: React.FC = () => {
     fetch(`https://api.github.com/users/${id}`)
       .then((response) => response.json())
       .then((json) => setMembers(json));
-  }, []);
+  }, [id]);
 
   return (
     <>
       <HeaderLayout>
-        <span>Detail page</span>
-        <Button className={classes.buttonCard} onClick={handleNavigation}>
-          Back to list member page
-        </Button>
+        <span className={classes.detailHeader}>Detail Page</span>
+        
       </HeaderLayout>
       <Card className={classes.card}>
         <CardContent>
@@ -60,6 +47,9 @@ export const DetailPageContainer: React.FC = () => {
             {member.bio}
           </Typography>
         </CardContent>
+        <Button onClick={handleNavigation}>
+          Back to list member page
+        </Button>
       </Card>
     </>
   );

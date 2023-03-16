@@ -5,3 +5,11 @@ export interface MemberDetailEntity{
   company: string;
   bio: string;
 }
+
+export const createDefaultMemberDetail = () => ({
+  id: "",
+  login: "",
+  name: "",
+  company: "",
+  bio: "",
+});

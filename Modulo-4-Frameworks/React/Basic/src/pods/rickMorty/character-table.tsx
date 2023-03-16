@@ -1,48 +1,25 @@
 import React from "react";
+import { SearchCharaters } from "./characterSearch";
 
-import { CharacterTableRow } from "./character-table-row";
-import { CharacterEntity } from "@/model/CharacterEntity";
+export const CharacterTable: React.FC = () => {
+  const {filter, setFilter, characters} = SearchCharaters();
 
-export const CharacterTable = () => {
-  const [characters, setCharacters] = React.useState<CharacterEntity[]>([]);
+  return (
+    <>
+      <input type="text" value={filter} onChange={(e) =>setFilter(e.target.value)} />
 
-  React.useEffect(() => {
+      <p>ID: {characters.id}</p>
+      <p>name: {characters.name}</p>
+      <p>ID: {characters.status}</p>
+      <p>ID: {characters.species}</p>
+      <img src={characters.image} alt="avatar"></img>
+    </>
+  );
+};
+
 /*     async function fetchData() {
       const response = await fetch('https://rickandmortyapi.com/api/character');
       const data = await response.json();
       setCharacters(data.results)
     }
     fetchData(); */
-    fetch('https://rickandmortyapi.com/api/character')
-    .then((data) => {
-      if(data.ok){
-        return data.json();
-      }else{
-        throw new Error('Invalid character')
-      }
-    })
-    .then(data => setCharacters(data.results))
-    .catch(() => {})
-  }, []);
-
-  return (
-    <>
-      <table>
-        <thead>
-          <tr>
-            <th>Avatar</th>
-            <th>ID</th>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {characters.map((character) => (
-            <tr key={character.id}>
-              <CharacterTableRow key={character.id} character={character} />
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
-  );
-};

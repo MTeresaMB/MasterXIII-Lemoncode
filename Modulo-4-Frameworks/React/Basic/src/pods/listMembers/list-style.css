@@ -1,8 +1,141 @@
-.boxInputSearch{
-  margin: 10px;
+/* input search */
+
+.inputSearch {
+  width: 100%;
+  max-width: 220px;
+  height: 45px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+  margin: 8px;
+}
+
+.inputSearch:focus {
+  border: 2px solid grey;
+}
+
+.inputSearch:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.inputSearch:active{
+  transform: scale(0.95);
+}
+
+/* button input search */
+
+.buttonSearch {
+  width: fit-content;
+  min-width: 100px;
+  height: 45px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2.5px solid #a8dadc;
+  box-shadow: 0px 0px 20px -20px;
+  cursor: pointer;
+  background-color: #a8dadc;
+  transition: all 0.2s ease-in-out 0ms;
+  user-select: none;
+  color: #000000;
+  font-size: 1.2rem;
+}
+.buttonSearch:hover {
+  background-color: #f1faee;
+  box-shadow: 0px 0px 20px -18px;
+  color: black;
+  border-color: #f1faee;
+}
+.buttonSearch:active {
+  transform: scale(0.95);
 }
 
 
+/* button Rick & Morty Character List */
+
+.buttonRickMorty {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #183153;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: none;
+  margin-top: 5px;
+  margin-right: 10px;
+  height: 80%;
+}
+
+.buttonRickMorty:after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  background: #ffd401;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+}
+
+.buttonRickMorty:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+
+.buttonRickMorty .buttonContent {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 25px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.buttonRickMorty:hover .buttonContent {
+  color: #183153;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
 
 
+/* Members List Github */
+
+.tableContainer{
+  min-width: 650px;
+}
+
+.tableHead{
+  height: 50px;
+  background-color: #F1FAEE;
+  
+}
+
+.linkMember > a{
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: #1a1919;
+}
 

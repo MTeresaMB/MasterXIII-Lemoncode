@@ -1,0 +1,21 @@
+.boxLogin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 15%;
+  padding: 20px;
+  border-radius: 5%;
+  box-shadow: 5px 5px 10px #ccc;
+}
+
+.boxLogin:hover{
+  box-shadow: 10px 10px 20px #ccc;
+}
+
+.buttonLogin{
+  border-radius: 10%;
+  margin-top: 30px;
+}

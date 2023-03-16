@@ -3,10 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .containerHeader{
   display: flex;
   justify-content: space-between;
-  background-color: indianred;
-  height: 50px;
+  background-color: #457B9D;
+  height: 60px;
 }
 

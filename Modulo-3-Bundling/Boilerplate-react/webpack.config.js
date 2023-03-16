@@ -1,11 +1,14 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require("path");
 const basePath = __dirname;
 
 module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
-    extensions: [".js", ".ts", ".tsx"],
+    extensions: ['.js', '.tsx', '.ts','.jsx'],
+    plugins: [new TsconfigPathsPlugin()]
+
   },
   entry: {
     app: ["./index.tsx", "./styles/index.css"],
@@ -52,6 +55,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html", //Name of file in ./dist/
       template: "index.html", //Name of template in ./src
+      scriptLoading: 'blocking',
+      hash: true
+
     }),
   ],
 };

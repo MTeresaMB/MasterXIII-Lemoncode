@@ -1,5 +1,6 @@
 import React from "react";
 import { CharacterEntity } from "@/model/CharacterEntity";
+import { TableCell } from "@mui/material";
 
 interface Props {
   character: CharacterEntity;
@@ -11,11 +12,11 @@ export const CharacterTableRow: React.FC<Props> = (props) => {
 
   return (
     <>
-      <th>
+      <TableCell>
         <img src={character.image} alt="avatar" />
-      </th>
-      <th>{character.id}</th>
-      <th>{character.name}</th>
+      </TableCell>
+      <TableCell>{character.id}</TableCell>
+      <TableCell>{character.name}</TableCell>
     </>
   );
 };

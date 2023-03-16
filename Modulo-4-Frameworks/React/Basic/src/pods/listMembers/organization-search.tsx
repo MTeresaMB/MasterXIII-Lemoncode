@@ -10,11 +10,13 @@ interface Props {
   onSearch: (organizationName: string) => void;
 }
 
+
 export const OrganizationSearch: React.FC<Props> = (props) => {
   const { onSearch } = props;
   const [organizationName, setOrganizationName] = React.useState("Lemoncode");
 
   const navigate = useNavigate();
+  
   const handleNavigationRickMorty = () => {
     return navigate(routes.listCharacter);
   };
@@ -25,17 +27,17 @@ export const OrganizationSearch: React.FC<Props> = (props) => {
 
   return (
     <HeaderLayout>
-      <div className={classes.boxInputSearch}>
-        <input className="input"
+      <div>
+        <input className={classes.inputSearch}
           value={organizationName}
           onChange={(e) => setOrganizationName(e.target.value)}
           />
-        <button onClick={() => onSearch(organizationName)}>
+        <button className={classes.buttonSearch} onClick={() => onSearch(organizationName)}>
           Search
         </button>
       </div>
-      <button className="buttonRick" onClick={handleNavigationRickMorty}>
-        Rick & Morty
+      <button className={classes.buttonRickMorty} onClick={handleNavigationRickMorty}>
+        <span className={classes.buttonContent}> Rick & Morty </span>
       </button>
     </HeaderLayout>
   );

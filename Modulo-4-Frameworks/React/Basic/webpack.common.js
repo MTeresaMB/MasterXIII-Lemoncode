@@ -10,7 +10,7 @@ module.exports = {
     plugins: [new TsconfigPathsPlugin()]
   },
   entry: {
-    app: ['./index.tsx','@/global-css/index.css'],
+    app: ['./index.tsx','./index.css'],
   },
   output:{
     filename: '[name].[chunkhash].js',
