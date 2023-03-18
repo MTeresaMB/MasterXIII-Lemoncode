@@ -4,11 +4,14 @@ import { MemberTableRow } from "./member-table-row";
 import { OrganizationSearch } from "./organization-search";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import classes from './list-style.css';
+import { OrganizationContext } from "@/app";
 
 export const MemberTable = () => {
+  const {organizationName} = React.useContext(OrganizationContext);
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
 
-  const handleSearch = (organizationName: string) => {
+  React.useEffect(() => {
+    const handleSearch = () => {
     fetch(`https://api.github.com/orgs/${organizationName}/members`)
     .then((response) => {
       if(response.ok){
@@ -17,13 +20,15 @@ export const MemberTable = () => {
         throw new Error("Error fetching members")
       }
     })
-    .then(setMembers)
-    .catch(() => {})
-  };
+      .then(setMembers)
+      .catch(() => {})
+    };
+    handleSearch();
+  },[organizationName]);
 
   return (
     <>
-      <OrganizationSearch onSearch={handleSearch}/>
+      <OrganizationSearch/>
         <TableContainer className={classes.tableContainer} component={Paper}>
           <Table aria-label="simple table">
           <TableHead className={classes.tableHead}>

@@ -5,15 +5,12 @@ import { routes } from "@/core";
 //styles
 import classes from "./list-style.css";
 import { HeaderLayout } from "@/layouts";
-
-interface Props {
-  onSearch: (organizationName: string) => void;
-}
+import { OrganizationContext } from "@/app";
 
 
-export const OrganizationSearch: React.FC<Props> = (props) => {
-  const { onSearch } = props;
-  const [organizationName, setOrganizationName] = React.useState("Lemoncode");
+export const OrganizationSearch: React.FC = () => {
+  const { organizationName, setOrganizationName } = React.useContext(OrganizationContext);
+  const [currentOrganizationName, setCurrentOrganizationName] = React.useState(organizationName);
 
   const navigate = useNavigate();
   
@@ -21,18 +18,14 @@ export const OrganizationSearch: React.FC<Props> = (props) => {
     return navigate(routes.listCharacter);
   };
 
-  React.useEffect(() => {
-    onSearch(organizationName);
-  }, []);
-
   return (
     <HeaderLayout>
       <div>
         <input className={classes.inputSearch}
-          value={organizationName}
-          onChange={(e) => setOrganizationName(e.target.value)}
+          value={currentOrganizationName}
+          onChange={(e) => setCurrentOrganizationName(e.target.value)}
           />
-        <button className={classes.buttonSearch} onClick={() => onSearch(organizationName)}>
+        <button className={classes.buttonSearch} onClick={() => setOrganizationName(currentOrganizationName)}>
           Search
         </button>
       </div>
