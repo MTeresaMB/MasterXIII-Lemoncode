@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "@/core";
 
 //styles
-import classes from "./list-style.css";
+import c from "./list-style.css";
 import { HeaderLayout } from "@/layouts";
 import { OrganizationContext } from "@/app";
 
@@ -21,16 +21,16 @@ export const OrganizationSearch: React.FC = () => {
   return (
     <HeaderLayout>
       <div>
-        <input className={classes.inputSearch}
+        <input className={c.inputSearch}
           value={currentOrganizationName}
           onChange={(e) => setCurrentOrganizationName(e.target.value)}
           />
-        <button className={classes.buttonSearch} onClick={() => setOrganizationName(currentOrganizationName)}>
+        <button className={c.buttonSearch} onClick={() => setOrganizationName(currentOrganizationName)}>
           Search
         </button>
       </div>
-      <button className={classes.buttonRickMorty} onClick={handleNavigationRickMorty}>
-        <span className={classes.buttonContent}> Rick & Morty </span>
+      <button className={c.buttonRickMorty} onClick={handleNavigationRickMorty}>
+        <span className={c.buttonContent}> Rick & Morty </span>
       </button>
     </HeaderLayout>
   );

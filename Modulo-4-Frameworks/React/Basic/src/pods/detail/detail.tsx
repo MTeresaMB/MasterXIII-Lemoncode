@@ -4,7 +4,7 @@ import { createDefaultMemberDetail, MemberDetailEntity } from "../../model/Membe
 import { routes } from "@/core";
 import { Button, Card, CardContent, Typography} from "@mui/material";
 import { HeaderLayout } from "@/layouts";
-import classes from './detail-style.css';
+import c from './detail-style.css';
 
 
 export const DetailPageContainer: React.FC = () => {
@@ -27,10 +27,10 @@ export const DetailPageContainer: React.FC = () => {
   return (
     <>
       <HeaderLayout>
-        <span className={classes.detailHeader}>Detail Page</span>
+        <span className={c.detailHeader}>Detail Page</span>
         
       </HeaderLayout>
-      <Card className={classes.card}>
+      <Card className={c.card}>
         <CardContent>
           <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
             Detail Page of User Information

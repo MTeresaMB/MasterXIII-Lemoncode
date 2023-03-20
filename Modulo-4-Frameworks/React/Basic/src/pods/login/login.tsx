@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./login.style.css";
+import c from "./login.style.css";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/core";
@@ -20,7 +20,7 @@ export const LoginPageContainer: React.FC = () => {
   return (
     <div>
       <form>
-        <Box className={classes.boxLogin}>
+        <Box className={c.boxLogin}>
           <Typography variant="h6">
             LogIn React Laboratory of Lemoncode
           </Typography>
@@ -43,7 +43,7 @@ export const LoginPageContainer: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></TextField>
           <Button
-            className={classes.buttonLogin}
+            className={c.buttonLogin}
             variant="contained"
             color="success"
             onClick={handleNavigation}

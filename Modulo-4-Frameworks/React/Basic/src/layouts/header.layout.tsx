@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./header.layout.style.css";
+import c from "./header.layout.style.css";
 
 interface Props {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ interface Props {
 
 export const HeaderLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div className={classes.containerHeader}>
+    <div className={c.containerHeader}>
       {children}
     </div>
   );
