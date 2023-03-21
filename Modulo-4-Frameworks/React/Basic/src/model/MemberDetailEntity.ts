@@ -4,6 +4,7 @@ export interface MemberDetailEntity{
   name:string;
   company: string;
   bio: string;
+  avatar_url: string;
 }
 
 export const createDefaultMemberDetail = () => ({
@@ -12,4 +13,5 @@ export const createDefaultMemberDetail = () => ({
   name: "",
   company: "",
   bio: "",
+  avatar_url: "",
 });

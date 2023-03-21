@@ -1,11 +1,63 @@
-.card{
+.card {
   margin: 30px auto;
-  max-width: 500px;
+  max-width: 450px;
+  height: fit-content;
 }
 
-.detailHeader{
+.detailHeader {
   color: #fff;
   margin: 10px;
   font-size: 2rem;
 }
 
+.avatarDetail {
+  margin: 20px auto;
+}
+
+.cardContent > .userIdDetail {
+  margin-top: 20px;
+  color: #777676;
+}
+
+.cardContent > .companyDetail {
+  margin-top: 20px;
+}
+
+.buttonBackList {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #2D1C3D;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 15px;
+  margin-left: 120px;
+}
+.buttonBackList span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonBackList span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.buttonBackList:hover span {
+  padding-right: 15px;
+}
+
+.buttonBackList:hover span:after {
+  opacity: 1;
+  right: 0;
+}

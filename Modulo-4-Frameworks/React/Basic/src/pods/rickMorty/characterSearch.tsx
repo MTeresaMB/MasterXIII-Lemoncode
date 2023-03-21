@@ -1,25 +1,24 @@
-import React from 'react';
-import { CharacterEntity } from '@/model/CharacterEntity';
-import { useDebounce } from 'use-debounce';
+import React from "react";
+import { HeaderRickMortyLayout } from "@/layouts/layoutRickMorty/headerRickMorty.layout";
+import { routes } from "@/core";
+import { useNavigate } from "react-router-dom";
 
-export const SearchCharaters = () => {
-  const [filter, setFilter] = React.useState("1");
-  const [characters, setCharacters] = React.useState<CharacterEntity>(
-    {
-      id: "",
-      name: "",
-      status: "",
-      species: "",
-      image: "",
-    }
+
+export const SearchCharaters: React.FC = () => {
+  
+  const navigate = useNavigate();
+
+  const handleNavigationMemberList = () => {
+    return navigate(routes.listCharacter);
+  };
+
+  return (
+    <HeaderRickMortyLayout>
+      <div>
+        <input />
+        <button>Search</button>
+      </div>
+      <button onClick={handleNavigationMemberList}>Members Github</button>
+    </HeaderRickMortyLayout>
   );
-
-  const [debouncedCharacter] = useDebounce(filter, 1500);
-  React.useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/${filter}`)
-    .then((response) => response.json())
-    .then(setCharacters)
-  },[debouncedCharacter]);
-
-  return {filter, setFilter, characters}
-}
+};

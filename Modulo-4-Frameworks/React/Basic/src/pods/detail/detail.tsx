@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createDefaultMemberDetail, MemberDetailEntity } from "../../model/MemberDetailEntity";
 import { routes } from "@/core";
-import { Button, Card, CardContent, Typography} from "@mui/material";
+import { Avatar, Button, Card, CardContent, Typography} from "@mui/material";
 import { HeaderLayout } from "@/layouts";
 import c from './detail-style.css';
 
@@ -31,25 +31,23 @@ export const DetailPageContainer: React.FC = () => {
         
       </HeaderLayout>
       <Card className={c.card}>
-        <CardContent>
-          <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
-            Detail Page of User Information
-          </Typography>
-          <Typography variant="h4" component="div">
+        <CardContent className={c.cardContent}>
+          <Avatar src={member.avatar_url} alt="member github avatar" className={c.avatarDetail} sx={{width: 80, height: 80}}></Avatar>
+          <Typography variant="h4" component="div" className={c.userNameDetail}>
             {member.name}
           </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            {member.id}
+          <Typography className={c.userIdDetail}>
+            ID: {member.id}
           </Typography>
-          <Typography variant="body2">
-            {member.company}
+          <Typography className={c.companyDetail}>
+            Company: {member.company}
             <br />
-            {member.bio}
+            Biography: {member.bio}
           </Typography>
         </CardContent>
-        <Button onClick={handleNavigation}>
-          Back to list member page
-        </Button>
+        <button className={c.buttonBackList} onClick={handleNavigation}>
+          <span>Back to Member List</span>
+        </button>
       </Card>
     </>
   );
