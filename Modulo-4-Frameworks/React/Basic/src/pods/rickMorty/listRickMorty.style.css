@@ -1,4 +1,148 @@
+.bodyRick{
+  background-color: rgb(32, 35, 41);
+  width: 100%;
+  height: 100vh;
+}
+
+.titleHeader{
+  color: #413e3e;
+  font-size: 5em;
+  margin: 20px;
+}
+
+.buttonListMembers {
+  height: 2.8em;
+  width: 9em;
+  background: transparent;
+  animation: jello-horizontal 0.9s both;
+  border: 2px solid orange;
+  outline: none;
+  color: #413e3e;
+  font-size: 17px;
+  margin-top: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.buttonListMembers:hover {
+  background: orange;
+  color: #ffffff;
+  animation: squeeze3124 0.9s both;
+}
+@keyframes squeeze3124 {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  max-width: 1300px;
+  margin: 50px auto;
+  grid-gap: 9px;
+  align-items: center;
+}
+
+.cardContent {
+  width: 460px;
+  background-color: #353941;
+  display: flex;
+  border-radius: 10px;
+}
 .cardContent > img{
-  width: 100px;
-  height: 100px;
+  width: 180px;
+  height: 260px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.detailCharacter{
+  color: #ffffff;
+}
+
+
+.inputContainer input{
+  background-color: rgb(250, 247, 247);
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100%;
+  max-width: 220px;
+  height: 45px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.inputContainer input:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.inputContainer input:active {
+  transform: scale(0.95);
+}
+
+.inputContainer input:focus {
+  border: 2px solid orange;
+}
+/* Pagination Buttons*/
+
+.paginationBttns {
+  width: 100%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 8px;
+  color: orange;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: orange;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: orange;
+}
+
+.paginationDisabled a {
+  color: rgb(243, 218, 172);
 }

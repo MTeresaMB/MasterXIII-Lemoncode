@@ -4,12 +4,17 @@ export interface CharacterEntity {
   image: string;
   status: string;
   species: string;
+  origin: {
+    name:string
+  };
+  location: {
+    name: string;
+  }
+  dimension: string;
+  type: string;
+  gender: string;
+  episode: {
+    name:string
+  }
 }
 
-export interface CharacterEmptyEntity {
-  id: "";
-  name: "";
-  status: "";
-  species: "";
-  image: "";
-}

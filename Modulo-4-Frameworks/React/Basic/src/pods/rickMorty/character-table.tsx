@@ -1,5 +1,5 @@
 import { CharacterEntity } from "@/model/CharacterEntity";
-import { Box } from "@mui/material";
+import { Box, IconButton, Input, InputAdornment, SvgIcon } from "@mui/material";
 import React from "react";
 import ReactPaginate from "react-paginate";
 import { CharacterTableRow } from "./character-table-row";
@@ -9,38 +9,55 @@ import c from './listRickMorty.style.css';
 
 export const CharacterTable: React.FC = () => {
   const [characters, setCharacters] = React.useState<CharacterEntity[]>([]);
-  const [pageNumber, setPageNumber] = React.useState<number>(0);
+  const [filter, setFilter] = React.useState("");
+  const [pageNumber, setPageNumber] = React.useState(0);
 
-  const characterPerPage = 6;
-  const indexOfLastCharacter = pageNumber * characterPerPage;
+  const CharactersPerPage = 6;
+  const indexOfLastCharacter = (pageNumber + 1) * CharactersPerPage;
+  const indexOfFirstCharacter = indexOfLastCharacter - CharactersPerPage;
+  const currentCharacters = characters.slice(
+    indexOfFirstCharacter,
+    indexOfLastCharacter,
+  );
+  
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character/?name=${filter}`,
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setCharacters(data.results);
+      } else {
+        throw new Error('Error fetching members');
+      }
+    } catch (error) {}
+  };
 
-  const displaycharacters = characters
-    .slice(indexOfLastCharacter, indexOfLastCharacter + characterPerPage)
-    .map((character) => {
-      return <CharacterTableRow key={character.id} character={character} />;
-  });
-
-  async function fetchData() {
-    const response = await fetch('https://rickandmortyapi.com/api/character');
-    const data = await response.json();
-    setCharacters(data.results)
-  }
-  fetchData();
-
-
+  React.useEffect(() => {
+    handleSearch();
+  }, [filter]);
 
   return (
-    <>
+    <Box className={c.bodyRick}>
       <SearchCharaters/>
+      <Box className={c.inputContainer}>
+        <input value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Search characters..."/>
+      </Box>
+
       <Box>
-        <Box className={c.containerCard}>{displaycharacters}</Box>
+        <Box className={c.cardContainer}>
+          {currentCharacters.map((character) => (
+            <CharacterTableRow key={character.id} character={character} />
+          ))}       
+        </Box>
         <Box className={c.containerPagination}>
           <ReactPaginate
             previousLabel={"Previous"}
             nextLabel={"Next"}
             breakLabel={"..."}
             breakClassName={"break-me"}
-            pageCount={Math.ceil(characters.length / characterPerPage)}
+            pageCount={Math.ceil(characters.length / CharactersPerPage)}
             marginPagesDisplayed={2}
             pageRangeDisplayed={6}
             onPageChange={({ selected }) => {
@@ -53,15 +70,39 @@ export const CharacterTable: React.FC = () => {
             activeClassName={c.paginationActive}
           ></ReactPaginate>
         </Box>
-      </Box>
-¡        
-    </>
+      </Box> 
+    </Box>
   );
 };
 
-/*     async function fetchData() {
-      const response = await fetch('https://rickandmortyapi.com/api/character');
-      const data = await response.json();
-      setCharacters(data.results)
-    }
-    fetchData(); */
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*   const characterPerPage = 6;
+              const indexOfLastCharacter = pageNumber * characterPerPage;
+            
+              const displaycharacters = characters
+                .slice(indexOfLastCharacter, indexOfLastCharacter + characterPerPage)
+                .map((character) => {
+                  return <CharacterTableRow key={character.id} character={character} />;
+              });
+ */

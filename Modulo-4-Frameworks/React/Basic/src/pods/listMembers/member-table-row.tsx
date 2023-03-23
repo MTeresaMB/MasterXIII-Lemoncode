@@ -31,8 +31,8 @@ export const MemberTableRow: React.FC<Props> = (props) => {
           image={member.avatar_url}
           alt="member github avatar"
         />
-        <CardContent className={c.ttl}>
-          <Typography className={c.h2} gutterBottom variant="h5" component="h2">
+        <CardContent className={c.cardContentMember}>
+          <Typography className={c.nameMember} gutterBottom variant="h5" component="h2">
             {member.login}
           </Typography>
           <Typography className={c.subtitle} variant="body2" component="p">

@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
-
 .headerRickMorty{
-  background-color: indianred;
-  height: 100px;
+  display: flex;
+  justify-content:right;
+  background-color: #fffcfc;
+  height: 150px;
+  gap: 19%;
+  font-family: 'Roboto', sans-serif;
 }
+

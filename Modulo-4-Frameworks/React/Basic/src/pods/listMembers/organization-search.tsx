@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/core";
+import { OrganizationContext } from "@/app";
 
 //styles
 import c from "./list-style.css";
 import { HeaderLayout } from "@/layouts/layoutMembersList/header.layout";
-import { OrganizationContext } from "@/app";
 
 
 export const OrganizationSearch: React.FC = () => {
@@ -16,7 +16,6 @@ export const OrganizationSearch: React.FC = () => {
   const handleNavigationRickMorty = () => {
     return navigate(routes.listCharacter);
   };
-
 
   
   return (

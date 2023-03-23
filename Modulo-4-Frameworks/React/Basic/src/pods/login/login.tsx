@@ -18,7 +18,7 @@ export const LoginPageContainer: React.FC = () => {
     }
   };
   return (
-    <div>
+    <div className={c.bodyLogin}>
       <form>
         <Box className={c.boxLogin}>
           <Typography variant="h6">

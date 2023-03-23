@@ -1,24 +1,22 @@
 import React from "react";
-import { HeaderRickMortyLayout } from "@/layouts/layoutRickMorty/headerRickMorty.layout";
 import { routes } from "@/core";
 import { useNavigate } from "react-router-dom";
 
+//styles
+import { HeaderRickMortyLayout } from "@/layouts/layoutRickMorty/headerRickMorty.layout";
+import c from './listRickMorty.style.css';
 
 export const SearchCharaters: React.FC = () => {
-  
   const navigate = useNavigate();
 
   const handleNavigationMemberList = () => {
-    return navigate(routes.listCharacter);
+    return navigate(routes.list);
   };
 
   return (
     <HeaderRickMortyLayout>
-      <div>
-        <input />
-        <button>Search</button>
-      </div>
-      <button onClick={handleNavigationMemberList}>Members Github</button>
+      <span className={c.titleHeader}>The Rick and Morty API</span>
+      <button className={c.buttonListMembers} onClick={handleNavigationMemberList}>Members Github</button>
     </HeaderRickMortyLayout>
   );
 };

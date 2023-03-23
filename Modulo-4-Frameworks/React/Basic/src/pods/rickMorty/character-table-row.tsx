@@ -1,11 +1,14 @@
 import React from "react";
 import { CharacterEntity } from "@/model/CharacterEntity";
-import { Button, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import c from './listRickMorty.style.css';
+import { useNavigate } from "react-router-dom";
+import { routes } from "@/core";
 
 interface Props {
   character: CharacterEntity;
 }
+
 
 
 export const CharacterTableRow: React.FC<Props> = (props) => {
@@ -13,21 +16,30 @@ export const CharacterTableRow: React.FC<Props> = (props) => {
 
   return (
     <>
-      <Card className={c.cardContent}>
+      <Box className={c.cardContent}>
         <CardMedia
           className={c.imageCharacter}
           component="img"
           image={character.image}
           alt="member github avatar"
-        />
-        <CardContent className={c.ttl}>
-          <Typography className={c.h2} gutterBottom variant="h5" component="h2">
-          </Typography>
-          <Typography className={c.subtitle} variant="body2" component="p">
-          </Typography>
-          <Button className={c.btn}>More</Button>
-        </CardContent>
-      </Card>
+          />
+        <Box>
+          <CardContent className={c.cardContentCharacter}>
+            <Typography className={c.detailCharacter} gutterBottom variant="h5" component="h2">
+              {character.name}
+            </Typography>
+            <Typography className={c.detailCharacter}  mt={2} variant="body1" component="p">
+              {character.status} - {character.species}
+            </Typography>
+            <Typography className={c.detailCharacter} mt={2} variant="body2" component="p">
+              Origin: {character.origin.name}
+            </Typography>
+            <Typography className={c.detailCharacter} mt={2} variant="body2" component="p">
+              Gender: {character.gender}
+            </Typography>
+          </CardContent>
+        </Box>
+      </Box>
     </>
   );
 };
