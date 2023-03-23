@@ -1,5 +1,5 @@
 import { CharacterEntity } from "@/model/CharacterEntity";
-import { Box, IconButton, Input, InputAdornment, SvgIcon } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import ReactPaginate from "react-paginate";
 import { CharacterTableRow } from "./character-table-row";
@@ -11,6 +11,7 @@ export const CharacterTable: React.FC = () => {
   const [characters, setCharacters] = React.useState<CharacterEntity[]>([]);
   const [filter, setFilter] = React.useState("");
   const [pageNumber, setPageNumber] = React.useState(0);
+  const [searchTerm, setSearchTerm] = React.useState<string>("");
 
   const CharactersPerPage = 6;
   const indexOfLastCharacter = (pageNumber + 1) * CharactersPerPage;
@@ -20,6 +21,7 @@ export const CharacterTable: React.FC = () => {
     indexOfLastCharacter,
   );
   
+
   const handleSearch = async () => {
     try {
       const response = await fetch(

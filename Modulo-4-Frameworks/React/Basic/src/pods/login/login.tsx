@@ -21,33 +21,35 @@ export const LoginPageContainer: React.FC = () => {
     <div className={c.bodyLogin}>
       <form>
         <Box className={c.boxLogin}>
-          <Typography variant="h6">
-            LogIn React Laboratory of Lemoncode
-          </Typography>
-          <TextField
-            margin="normal"
-            type={"text"}
-            variant="outlined"
-            label="Username"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          ></TextField>
-          <TextField
-            margin="normal"
-            type={"password"}
-            variant="outlined"
-            label="Password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></TextField>
+          <Box>
+            <Typography component="p">
+              LogIn React Laboratory of Lemoncode
+            </Typography>
+          </Box>
+          <Box className={c.userBox}>
+            <input
+              type={"text"}
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            ></input>
+          </Box>
+          <Box className={c.userBox}>
+            <input
+              type={"password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </Box>
           <Button
             className={c.buttonLogin}
-            variant="contained"
-            color="success"
             onClick={handleNavigation}
           >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
             Enter
           </Button>
         </Box>

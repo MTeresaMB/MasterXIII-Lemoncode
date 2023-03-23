@@ -37,6 +37,9 @@ export const CharacterTableRow: React.FC<Props> = (props) => {
             <Typography className={c.detailCharacter} mt={2} variant="body2" component="p">
               Gender: {character.gender}
             </Typography>
+            <Typography className={c.detailCharacter} mt={2} variant="body2" component="p">
+              Location: {character.location.name}
+            </Typography>
           </CardContent>
         </Box>
       </Box>

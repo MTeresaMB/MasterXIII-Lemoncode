@@ -7,7 +7,7 @@
 .titleHeader{
   color: #413e3e;
   font-size: 5em;
-  margin: 20px;
+  margin-top: 50px;
 }
 
 .buttonListMembers {
@@ -19,7 +19,7 @@
   outline: none;
   color: #413e3e;
   font-size: 17px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-right: 10px;
   cursor: pointer;
 }
