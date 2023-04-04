@@ -1,1 +1,2 @@
 <p>private-menu works!</p>
+<app-private-header *ngIf="authService.isLogged() && !authService.getSpinnerState()"></app-private-header>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-public-header',
@@ -8,11 +9,9 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./public-header.component.scss']
 })
 export class PublicHeaderComponent implements OnInit {
-  title = 'angular icon';
-  constructor(
-    private MatIconRegistry: MatIconRegistry,
-    private DomSanitizer: DomSanitizer
-  ) {
+  title = 'Angular Laboratory Lemoncode'
+
+  constructor( private MatIconRegistry: MatIconRegistry, private DomSanitizer: DomSanitizer, public authService: AuthService) {
     this.MatIconRegistry.addSvgIcon('angular',this.DomSanitizer.bypassSecurityTrustResourceUrl('../assets/svg/angular.svg'))
   }
   ngOnInit() {}

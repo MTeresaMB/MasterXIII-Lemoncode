@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-private-menu',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./private-menu.component.scss']
 })
 export class PrivateMenuComponent {
-
+  constructor(public authService: AuthService){}
 }
