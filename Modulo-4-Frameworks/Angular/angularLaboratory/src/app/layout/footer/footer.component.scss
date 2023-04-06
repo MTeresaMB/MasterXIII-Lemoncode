@@ -1,0 +1,11 @@
+.container-list{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background-color: #2B2D42;
+  color: #fff;
+  
+  .grid-tile{
+    margin: 10px auto;
+
+  }
+}

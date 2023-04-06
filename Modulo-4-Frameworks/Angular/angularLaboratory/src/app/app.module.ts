@@ -40,7 +40,7 @@ import { CrudComponent } from './components/crud/crud.component';
     DashboardComponent,
     GalleryComponent,
     ProfileComponent,
-    CrudComponent
+    CrudComponent,
   ],
   imports: [
     BrowserModule,

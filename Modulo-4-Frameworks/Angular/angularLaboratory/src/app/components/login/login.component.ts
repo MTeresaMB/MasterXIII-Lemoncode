@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
             this.dataError = false;
           }, 4000);
         } else {
-          this.router.navigate(['../dashboard'])
+          this.router.navigateByUrl('/dashboard')
         }
       }, (e) => {
         console.log(`Error: ${e}`);

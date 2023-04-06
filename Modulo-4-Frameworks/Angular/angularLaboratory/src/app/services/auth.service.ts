@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, delay, of } from 'rxjs';
 import { User } from '../model/user.wm';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,14 +10,14 @@ export class AuthService {
   private authentication: boolean;
   private spinnerState: boolean;
 
-  constructor() {
+  constructor(private router: Router) {
     this.authentication = false;
-    this.user = this.getLocalStorageData();
+    this.user = { username: '', password: '' };
     this.spinnerState = false;
   }
 
   login(username: string, password: string): Observable<boolean>{
-    if(username === 'm' && password === 't'){
+    if(username === 'master@lemoncode.com' && password === '12345678'){
       this.user = { username, password };
       this.setLocalStorageData();
       this.authentication = true;
@@ -29,6 +30,7 @@ export class AuthService {
     this.user = { username: '', password: ''};
     this.authentication = false;
     this.cleanLocalStorageData();
+    this.router.navigateByUrl('/home')
   }
 
   isLogged(): boolean {

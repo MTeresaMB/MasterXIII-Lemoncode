@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class PrivateHeaderComponent {
   }
   handleLogOut(): void {
     this.authService.logout();
-    this.router.navigateByUrl('./home');
+    this.router.navigate(['./home']);
   }
   ngOnInit() {}
 }

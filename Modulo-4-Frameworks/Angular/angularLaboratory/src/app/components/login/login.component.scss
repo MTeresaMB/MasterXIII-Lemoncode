@@ -1,0 +1,80 @@
+.card-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 490px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin: 20px auto;
+  margin-top: 10%;
+  transform: translate(-50%, -55%);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  background-color: #2b2d42;
+  color: #ccc;
+
+
+  .boxLogin h1:first-child {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  p {
+    color: red;
+  }
+  .content-input{
+    margin-left: 13%;
+  }
+  .input {
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: 300ms ease-in-out;
+    margin: 10px ;
+  }
+
+  .input:focus {
+    background-color: white;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696, -13px -13px 100px #ffffff;
+  }
+  .boxLogin .buttonLogin {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 40px;
+    margin-left: 35%;
+    letter-spacing: 3px;
+  }
+
+  .boxLogin .buttonLogin:hover {
+    background: #fff;
+    color: #272727;
+    border-radius: 5px;
+  }
+
+  .boxLogin .buttonLogin span {
+    position: absolute;
+    display: block;
+  }
+}

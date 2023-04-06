@@ -2,15 +2,11 @@
   <mat-drawer mode="side" opened class="navbar" *ngIf="!authService.isLogged() || authService.getSpinnerState()">
     <mat-icon svgIcon="angular" aria-hidden="false" aria-label="angular SVG icon"></mat-icon>
     <p class="titleWeb">{{title}}</p>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/home">Home</a>
+    <mat-nav-list class="nav-list">
+      <a class="list" mat-list-item routerLink="/home">Home</a>
       <a mat-list-item routerLink="/login">Login</a>
       <a mat-list-item routerLink="/about">About</a>
     </mat-nav-list>
-
-
   </mat-drawer>
-  <mat-drawer-content>
-    content
-  </mat-drawer-content>
+    <router-outlet></router-outlet>
 </mat-drawer-container>

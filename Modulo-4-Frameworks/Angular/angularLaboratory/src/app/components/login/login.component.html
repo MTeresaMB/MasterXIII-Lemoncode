@@ -1,23 +1,13 @@
-<p>login works!</p>
-
-
-<div>
-  <h1 >User login</h1>
-  <mat-card
-    *ngIf="authService.getSpinnerState()"
-  >
-    <mat-spinner></mat-spinner>
-  </mat-card>
+<div class="card-login">
+    <mat-spinner *ngIf="authService.getSpinnerState()"></mat-spinner>
   <form
     *ngIf="!authService.getSpinnerState()"
     #loginForm="ngForm"
+    class="boxLogin"
   >
-    <mat-card>
-      <p *ngIf="dataError" >
-        Incorrect password or username
-      </p>
-      <mat-form-field>
-        <mat-label>Username</mat-label>
+    <h1>Login</h1>
+    <div class="content-input">
+      <p *ngIf="dataError">Incorrect password or username</p>
         <input
           matInput
           type="text"
@@ -25,13 +15,11 @@
           placeholder="Type your Username"
           required
           minlength="1"
-          [(ngModel)] = "user.username"
+          [(ngModel)]="user.username"
           #username="ngModel"
+          class="input"
         />
-      </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Password</mat-label>
         <input
           matInput
           type="password"
@@ -39,19 +27,23 @@
           placeholder="Type your password"
           required
           minlength="1"
-          [(ngModel)] = "user.password"
+          [(ngModel)]="user.password"
           #password="ngModel"
+          class="input"
         />
-      </mat-form-field>
-
-    </mat-card>
+    </div>
     <button
+      class="buttonLogin"
       mat-raised-button
       color="primary"
       [disabled]="loginForm.invalid"
       (click)="onSubmit($event)"
     >
-      Login
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Enter
     </button>
   </form>
 </div>
