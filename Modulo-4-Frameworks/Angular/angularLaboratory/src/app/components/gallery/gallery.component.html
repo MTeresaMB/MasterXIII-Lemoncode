@@ -2,5 +2,131 @@
   <mat-toolbar>
     <span>My Application Gallery</span>
   </mat-toolbar>
+    <main class="main-container">
+      <mat-card class="gallery-container">
+        <div class="img-container">
+          <img
+            src="{{ currentPicture.src }}"
+            alt="{{ currentPicture.title }}"
+            class="main-img scale-{{ currentScale }}"
+          />
+        </div>
+        <mat-divider class="divider"></mat-divider>
+        <div class="btn-container">
+          <button
+            mat-raised-button
+            color="primary"
+            *ngIf="pictureList[0].id !== currentPicture.id"
+            (click)="handlePreviousPicture()"
+          >
+            Previous
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            disabled
+            *ngIf="pictureList[0].id === currentPicture.id"
+          >
+            Previous
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            *ngIf="pictureList[pictureList.length - 1].id !== currentPicture.id"
+            (click)="handleNextPicture()"
+          >
+            Next
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            disabled
+            *ngIf="pictureList[pictureList.length - 1].id === currentPicture.id"
+          >
+            Next
+          </button>
+          <button
+            mat-raised-button
+            color="basic"
+            *ngIf="currentScale < 5"
+            (click)="handleZoomIn()"
+          >
+            Zoom in
+          </button>
+          <button mat-raised-button disabled *ngIf="currentScale === 5">
+            Zoom in
+          </button>
+          <button
+            mat-raised-button
+            color="basic"
+            *ngIf="currentScale > 1"
+            (click)="handleZoomOut()"
+          >
+            Zoom out
+          </button>
+          <button
+            mat-raised-button
+            color="basic"
+            disabled
+            *ngIf="currentScale === 1"
+          >
+            Zoom out
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            *ngIf="!isPlayingGallery"
+            (click)="handlePlayGallery()"
+          >
+            Play
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            *ngIf="isPlayingGallery"
+            (click)="handleStopGallery()"
+          >
+            Stop
+          </button>
+        </div>
+        <mat-divider class="divider"></mat-divider>
+        <div class="img-gallery-container">
+          <button
+            mat-raised-button
+            color="primary"
+            class="pag-btn"
+            (click)="setListPagination('rest')"
+          >
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+          <div
+            class="{{
+              currentPicture.id === picture.id
+                ? 'pag-img-container selected-img'
+                : 'pag-img-container'
+            }}"
+            *ngFor="
+              let picture of pictureList
+                | slice: firstPagineImage:lastPagineImage
+            "
+          >
+            <img
+              src="{{ picture.src }}"
+              alt="{{ picture.title }}"
+              class="pag-img"
+              (click)="setCurrentPicture(picture)"
+            />
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            class="pag-btn"
+            (click)="setListPagination('sum')"
+          >
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    </main>
   <router-outlet></router-outlet>
 </div>
