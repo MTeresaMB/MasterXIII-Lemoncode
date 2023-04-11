@@ -27,13 +27,13 @@ export default {
     },
   },
 }
-
 </script>
-
 <script setup lang="ts">
   import { useGitHubList } from '~/composables/useGitHubList'
   const memberList = useGitHubList();
 </script>
+
+
 <style lang="scss">
 * {
   margin: 0;

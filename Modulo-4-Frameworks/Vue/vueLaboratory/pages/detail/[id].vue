@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { memberService } from '~~/services/memberService'
-import { MemberEntity } from '~~/types/MemberEntity'
+import { memberService } from '~~/services/memberService';
+import { MemberEntity } from '~~/types/MemberEntity';
 
 const route = useRoute()
 const id = route.params.id as string

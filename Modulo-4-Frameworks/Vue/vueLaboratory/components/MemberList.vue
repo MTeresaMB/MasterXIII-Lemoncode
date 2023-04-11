@@ -1,9 +1,12 @@
 <template>
   <SearchBox :organization-value="searchItem" @update:organization-value="searchItem = $event" />
+	<div v-if="errorMessage" class="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
   <div class="main">
-    <div class="profile" v-for="member in listMembers" :key="member.id">
+    <div v-if="listMembers.length && !errorMessage" class="profile" v-for="member in listMembers" :key="member.id">
       <div class="profile-image">
-        <img :src="member.avatar_url" alt="member avatar" loading="lazy">
+        <img :src="member.avatar_url" alt="" loading="lazy">
       </div>
 			<div class="profile-content">
 				<h2 class="profile-username">{{ member.login }}</h2>
@@ -21,13 +24,27 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import SearchBox from './SearchBox.vue';
+
 const { handleSearch } = useGitHubList();
 
 onMounted(async () => {
   await handleSearch();
 });
 
-const { listMembers, searchItem } = storeToRefs(useGitHubList());
+const { listMembers, searchItem, errorMessage } = storeToRefs(useGitHubList());
+const handleSearchWithCatch = async (textValue = searchItem.value) => {
+  try {
+    await handleSearch(textValue);
+    errorMessage.value = '';
+  } catch (error:unknown) {
+    listMembers.value = [];
+    errorMessage.value = (error as Error).message;
+  }
+};
+
+onMounted(async () => {
+  await handleSearchWithCatch();
+});
 
 </script>
 
@@ -67,7 +84,7 @@ a {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding: 3rem;
+	padding: 2.5rem;
 	width: 90%;
 	max-width: 400px;
 	background-color: #1b2028;

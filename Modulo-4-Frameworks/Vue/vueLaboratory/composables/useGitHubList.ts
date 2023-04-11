@@ -6,15 +6,28 @@ export type ListItem = { quantity: number; data: MemberEntity };
 export type ListItemRecord = Record<MemberEntity['id'], ListItem>
 
 export const useGitHubList = defineStore('memberList', () => {
-  const searchItem = ref('Lemoncode');
+  const searchItem = ref('lemoncode');
   const listMembers: Ref<MemberEntity[]> = ref([]);
 
+  const errorMessage = ref('');
+
   const onSubmit = async (organization: string) => {
-    listMembers.value = await memberService.getMember(organization)
+    try {
+      listMembers.value = await memberService.getMember(organization)
+      errorMessage.value = '';
+    } catch (error) {
+      errorMessage.value = 'Organization not found';
+    }
   }
 
   const handleSearch = async (textValue = searchItem.value) => {
-    listMembers.value = await memberService.getMember(textValue);
+    try {
+      listMembers.value = await memberService.getMember(textValue);
+      errorMessage.value = '';
+    } catch (error) {
+      errorMessage.value = 'Organization not found';
+    }
   };
-  return { onSubmit, handleSearch, listMembers, searchItem };
+
+  return { onSubmit, handleSearch, listMembers, searchItem, errorMessage };
 })
