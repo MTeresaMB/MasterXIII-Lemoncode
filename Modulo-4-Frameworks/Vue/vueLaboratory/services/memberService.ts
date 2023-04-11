@@ -4,7 +4,7 @@ export const memberService = {
   async getMember(organization: string) {
     const members = await fetch(`https://api.github.com/orgs/${organization}/members`).then((response) => {
       if (!response.ok) {
-        throw new Error('Organization not found');
+        throw new Error('Organization not found. Please try your search again');
       }
       return response.json();
     });

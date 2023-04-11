@@ -1,13 +1,13 @@
 <template>
-  <SearchBox :organization-value="searchItem" @update:organization-value="searchItem = $event" />
+	<SearchBox :organization-value="searchItem" @update:organization-value="searchItem = $event" />
 	<div v-if="errorMessage" class="errorMessage">
-    <p>{{ errorMessage }}</p>
-  </div>
-  <div class="main">
-    <div v-if="listMembers.length && !errorMessage" class="profile" v-for="member in listMembers" :key="member.id">
-      <div class="profile-image">
-        <img :src="member.avatar_url" alt="" loading="lazy">
-      </div>
+		<p>{{ errorMessage }}</p>
+	</div>
+	<div class="main">
+		<div v-if="listMembers.length && !errorMessage" class="profile" v-for="member in listMembers" :key="member.id">
+			<div class="profile-image">
+				<img :src="member.avatar_url" alt="" loading="lazy">
+			</div>
 			<div class="profile-content">
 				<h2 class="profile-username">{{ member.login }}</h2>
 				<small class="profile-user-handle">{{ member.html_url }}</small>
@@ -17,8 +17,8 @@
 					</div>
 				</NuxtLink>
 			</div>
-    </div>
-  </div>
+		</div>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -28,29 +28,29 @@ import SearchBox from './SearchBox.vue';
 const { handleSearch } = useGitHubList();
 
 onMounted(async () => {
-  await handleSearch();
+	await handleSearch();
 });
 
 const { listMembers, searchItem, errorMessage } = storeToRefs(useGitHubList());
 const handleSearchWithCatch = async (textValue = searchItem.value) => {
-  try {
-    await handleSearch(textValue);
-    errorMessage.value = '';
-  } catch (error:unknown) {
-    listMembers.value = [];
-    errorMessage.value = (error as Error).message;
-  }
+	try {
+		await handleSearch(textValue);
+		errorMessage.value = '';
+	} catch (error: unknown) {
+		listMembers.value = [];
+		errorMessage.value = (error as Error).message;
+	}
 };
 
 onMounted(async () => {
-  await handleSearchWithCatch();
+	await handleSearchWithCatch();
 });
 
 </script>
 
 
 <style lang="scss">
-  @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 *,
 *:before,
@@ -63,24 +63,42 @@ onMounted(async () => {
 	min-height: 100vh;
 	font-family: "Be Vietnam Pro", sans-serif;
 	display: flex;
-  flex-wrap: wrap;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-around;
 
 }
 
-button{
+button {
 	font: inherit;
 }
 
 a {
 	color: inherit;
-  text-decoration: none;
+	text-decoration: none;
 }
+
+.errorMessage {
+	background-color: #003566;
+	overflow: hidden;
+	width: 500px;
+	height: 80px;
+	position: relative;
+	margin: 20px auto;
+	border-radius: 15px;
+
+	p {
+		padding: 1rem;
+		text-align: center;
+		font-size: 1.3em;
+		color: #fff;
+	}
+}
+
 /* End basic CSS override */
 
 .profile {
-  margin: 15px;
+	margin: 15px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -94,13 +112,12 @@ a {
 	background-clip: padding-box;
 	text-align: center;
 	color: #f1f3f3;
-	background-image: linear-gradient(
-		135deg,
-		rgba(#752e7c, 0.35),
-		rgba(#734a58, 0.1) 15%,
-		#1b2028 20%,
-		#1b2028 100%
-	);
+	background-image: linear-gradient(135deg,
+			rgba(#752e7c, 0.35),
+			rgba(#734a58, 0.1) 15%,
+			#1b2028 20%,
+			#1b2028 100%);
+
 	&:after {
 		content: "";
 		display: block;
@@ -111,13 +128,11 @@ a {
 		z-index: -1;
 		position: absolute;
 		border-radius: 16px;
-		background-image: linear-gradient(
-			135deg,
-			#752e7c,
-			#734a58 20%,
-			#1b2028 30%,
-			#2c333e 100%
-		);
+		background-image: linear-gradient(135deg,
+				#752e7c,
+				#734a58 20%,
+				#1b2028 30%,
+				#2c333e 100%);
 	}
 }
 
@@ -127,6 +142,7 @@ a {
 	width: 175px;
 	height: 175px;
 	position: relative;
+
 	img {
 		position: absolute;
 		top: 50%;
@@ -172,6 +188,7 @@ a {
 		background-image: linear-gradient(135deg, #5587ff, #3772ff);
 		color: #fff;
 		padding: 0 1.375em;
+
 		&:hover,
 		&:focus {
 			background-size: 150%;
@@ -179,6 +196,4 @@ a {
 	}
 
 }
-
-
 </style>

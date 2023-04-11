@@ -16,7 +16,7 @@ export const useGitHubList = defineStore('memberList', () => {
       listMembers.value = await memberService.getMember(organization)
       errorMessage.value = '';
     } catch (error) {
-      errorMessage.value = 'Organization not found';
+      errorMessage.value = 'Organization not found, Please try your search again';
     }
   }
 
@@ -25,7 +25,7 @@ export const useGitHubList = defineStore('memberList', () => {
       listMembers.value = await memberService.getMember(textValue);
       errorMessage.value = '';
     } catch (error) {
-      errorMessage.value = 'Organization not found';
+      errorMessage.value = 'Organization not found, Please try your search again';
     }
   };
 
