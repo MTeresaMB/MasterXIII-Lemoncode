@@ -1,25 +1,26 @@
 <template>
   <SearchBox :organization-value="searchItem" @update:organization-value="searchItem = $event" />
-  <main>
+  <div class="main">
     <div class="profile" v-for="member in listMembers" :key="member.id">
       <div class="profile-image">
         <img :src="member.avatar_url" alt="member avatar" loading="lazy">
       </div>
-      <h2 class="profile-username">{{ member.login }}</h2>
-      <small class="profile-user-handle">{{ member.html_url }}</small>
-      <NuxtLink :to="`/members/${member.id}`">
-        <div class="profile-actions">
-          <button class="btn btn--primary">More info</button>
-        </div>
-      </NuxtLink>
+			<div class="profile-content">
+				<h2 class="profile-username">{{ member.login }}</h2>
+				<small class="profile-user-handle">{{ member.html_url }}</small>
+				<NuxtLink :to="`/detail/${member.login}`">
+					<div class="profile-actions">
+						<button class="btn btn--primary">More info</button>
+					</div>
+				</NuxtLink>
+			</div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import SearchBox from './SearchBox.vue';
-
 const { handleSearch } = useGitHubList();
 
 onMounted(async () => {
@@ -40,16 +41,15 @@ const { listMembers, searchItem } = storeToRefs(useGitHubList());
 	box-sizing: border-box;
 }
 
-/* Some basic CSS overrides */
-main {
+.main {
 	line-height: 1.5;
 	min-height: 100vh;
 	font-family: "Be Vietnam Pro", sans-serif;
 	display: flex;
   flex-wrap: wrap;
 	align-items: center;
-	justify-content: center;
-	background-color: #060606;
+	justify-content: space-around;
+
 }
 
 button{
@@ -63,13 +63,13 @@ a {
 /* End basic CSS override */
 
 .profile {
-  margin-top: 10px;
+  margin: 15px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	padding: 3rem;
 	width: 90%;
-	max-width: 350px;
+	max-width: 400px;
 	background-color: #1b2028;
 	border-radius: 16px;
 	position: relative;

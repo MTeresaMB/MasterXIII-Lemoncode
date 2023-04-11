@@ -4,6 +4,9 @@ export const memberService = {
   async getMember(organization:string) {
     const members = await fetch(`https://api.github.com/orgs/${organization}/members`)
     .then((response) => response.json())
+    if (members.length === 0) {
+      throw new Error(`No se encontraron resultados para la organización ${organization}.`)
+    }
     return members as MemberEntity[];
   },
 
