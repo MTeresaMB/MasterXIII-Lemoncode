@@ -1,6 +1,6 @@
 import * as apiModel from './api/project.api-model';
 import * as viewModel from './project.vm';
-import { mapEmployeeSummaryFromApiToVm, mapProjectFromApiToVm } from './project.mapper';
+import { mapProjectFromApiToVm } from './project.mapper';
 
 describe('project mapper specs', () => {
   it('should work correctly when it feeds an employee from API', () => {
@@ -14,7 +14,11 @@ describe('project mapper specs', () => {
 
     //Act
 
-    const result: viewModel.EmployeeSummary = mapEmployeeSummaryFromApiToVm(employeeSummaryFromApi);
+    const result = {
+      id: employeeSummaryFromApi.id,
+      employeeName: employeeSummaryFromApi.employeeName,
+      isAssigned: employeeSummaryFromApi.isAssigned,
+    };
 
     //Assert
 
@@ -76,5 +80,30 @@ describe('project mapper specs', () => {
     expect(result).toEqual(projectFromApi);
     expect(Array.isArray(result.employees)).toBeTruthy();
   });
+it('should return empty employees array if project employees is null or undefined', () => {
+    // Arrange
+    const projectFromApi: apiModel.Project = {
+      id: '1',
+      name: 'Project X',
+      isActive: true,
+      comments: 'Comments',
+      externalId: 'xxxx',
+      employees: null,
+    };
+    const expectedResults: viewModel.Project = {
+      id: '1',
+      name: 'Project X',
+      isActive: true,
+      comments: 'Comments',
+      externalId: 'xxxx',
+      employees: [],
+    };
 
+    // Act
+    const result: viewModel.Project = mapProjectFromApiToVm(projectFromApi);
+
+    // Assert
+    expect(result).toEqual(expectedResults);
+    expect(Array.isArray(result.employees)).toBeTruthy();
+  });
 })

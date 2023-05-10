@@ -79,4 +79,26 @@ describe('Confirmation Dialog Component specs', () => {
     //Assert
     expect(props.onClose).toHaveBeenCalled();
   });
+
+  it('should not render the component when isOpen is false', () => {
+    //Arrange
+    const props = {
+      isOpen: false,
+      onAccept:jest.fn(),
+      onClose: jest.fn(),
+      title: 'Confirmation Dialog',
+      labels: {
+        closeButton: 'Close',
+        acceptButton: 'Accept',
+      },
+      children: <p>Are you sure you want to proceed?</p>,
+    };
+
+    //Act
+    render(<ConfirmationDialogComponent {...props} />);
+
+    //Assert
+    expect(screen.queryByText(props.title)).not.toBeInTheDocument();
+  });
+
 });
