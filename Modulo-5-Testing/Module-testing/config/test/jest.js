@@ -4,5 +4,5 @@ module.exports = {
   restoreMocks: true,
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/config/test/setup-after.ts'],
-  moduleDirectories: ['/src', 'node_modules'],
+  moduleDirectories: ['<rootDir>/src', 'node_modules'],
 };

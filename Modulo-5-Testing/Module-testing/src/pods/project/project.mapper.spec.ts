@@ -5,27 +5,43 @@ import { mapProjectFromApiToVm } from './project.mapper';
 describe('project mapper specs', () => {
   it('should work correctly when it feeds an employee from API', () => {
     //Arrange
-
-    const employeeSummaryFromApi: apiModel.EmployeeSummary = {
+    const projectFromApi: apiModel.Project = {
       id: '1',
-      employeeName: 'John Doe',
-      isAssigned: true,
+      name: 'Test Project',
+      employees: [
+        {
+          id: '1',
+          employeeName: 'John Doe',
+          isAssigned: true,
+        },
+        {
+          id: '2',
+          employeeName: 'Jane Smith',
+          isAssigned: false,
+        },
+      ],
+      isActive: false
     };
-
     //Act
-
-    const result = {
-      id: employeeSummaryFromApi.id,
-      employeeName: employeeSummaryFromApi.employeeName,
-      isAssigned: employeeSummaryFromApi.isAssigned,
-    };
+    const result = mapProjectFromApiToVm(projectFromApi);
 
     //Assert
-
     expect(result).toEqual({
       id: '1',
-      employeeName: 'John Doe',
-      isAssigned: true,
+      name: 'Test Project',
+      isActive: false,
+      employees: [
+        {
+          id: '1',
+          employeeName: 'John Doe',
+          isAssigned: true,
+        },
+        {
+          id: '2',
+          employeeName: 'Jane Smith',
+          isAssigned: false,
+        },
+      ],
     });
   });
 
@@ -80,9 +96,9 @@ describe('project mapper specs', () => {
     expect(result).toEqual(projectFromApi);
     expect(Array.isArray(result.employees)).toBeTruthy();
   });
-it('should return empty employees array if project employees is null or undefined', () => {
+  it('should return empty employees array if project employees is null or undefined', () => {
     // Arrange
-    const projectFromApi: apiModel.Project = {
+    const nullEmployeesApiProject: apiModel.Project = {
       id: '1',
       name: 'Project X',
       isActive: true,
@@ -90,6 +106,15 @@ it('should return empty employees array if project employees is null or undefine
       externalId: 'xxxx',
       employees: null,
     };
+    const undefinedEmployeesApiProject: apiModel.Project = {
+      id: '1',
+      name: 'Project X',
+      isActive: true,
+      comments: 'Comments',
+      externalId: 'xxxx',
+      employees: undefined,
+    };
+
     const expectedResults: viewModel.Project = {
       id: '1',
       name: 'Project X',
@@ -100,10 +125,13 @@ it('should return empty employees array if project employees is null or undefine
     };
 
     // Act
-    const result: viewModel.Project = mapProjectFromApiToVm(projectFromApi);
+    const nullEmployeesResult: viewModel.Project = mapProjectFromApiToVm(nullEmployeesApiProject);
+    const undefinedEmployeesResult: viewModel.Project = mapProjectFromApiToVm(undefinedEmployeesApiProject);
 
     // Assert
-    expect(result).toEqual(expectedResults);
-    expect(Array.isArray(result.employees)).toBeTruthy();
+    expect(nullEmployeesResult).toEqual(expectedResults);
+    expect(undefinedEmployeesResult).toEqual(expectedResults);
+    expect(Array.isArray(nullEmployeesResult.employees)).toBeTruthy();
+    expect(Array.isArray(undefinedEmployeesResult.employees)).toBeTruthy();
   });
 })
