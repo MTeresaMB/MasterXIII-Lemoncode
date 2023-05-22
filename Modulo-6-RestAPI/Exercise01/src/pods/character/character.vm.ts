@@ -1,17 +1,9 @@
 export interface Character {
-  id: string;
+  id: number;
   name: string;
-  description: string;
-  rating: number;
-  address: string;
-  city: string;
 }
 
 export const createEmptyCharacter = (): Character => ({
-  id: '',
+  id: Math.floor(Math.random() * 1000),
   name: '',
-  description: '',
-  rating: 3,
-  address: '',
-  city: '',
 });
