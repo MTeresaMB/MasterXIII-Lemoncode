@@ -18,3 +18,6 @@ export interface Character {
   url: string;
   created: string;
 }
+export interface EndPointDetail {
+  results: Character[];
+}
