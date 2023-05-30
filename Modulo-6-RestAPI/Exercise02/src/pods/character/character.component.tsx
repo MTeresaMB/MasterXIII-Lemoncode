@@ -4,12 +4,12 @@ import { CharacterDetailCard } from './components/character-detail-card.componen
 
 interface Props {
   character: Character;
+  onSaveSentence: (character:Character) => void;
 }
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
-  const { character} = props;
-
+  const { character, onSaveSentence } = props;
   return (
-    <CharacterDetailCard character={character} />
+    <CharacterDetailCard character={character} onSaveSentence={onSaveSentence}/>
   );
 };

@@ -1,5 +1,4 @@
 {
-
   "info": {
     "count": 826,
     "pages": 42,
@@ -78,7 +77,7 @@
       ],
       "url": "https://rickandmortyapi.com/api/character/1",
       "created": "2017-11-04T18:48:46.250Z",
-      "bestSentences": "This is a test"
+      "bestSentences": "This is a test, this is a test 2"
     },
     {
       "id": 2,
@@ -279,7 +278,7 @@
       ],
       "url": "https://rickandmortyapi.com/api/character/4",
       "created": "2017-11-04T19:22:43.665Z",
-      "bestSentences": ""
+      "bestSentences": "test"
     },
     {
       "id": 5,

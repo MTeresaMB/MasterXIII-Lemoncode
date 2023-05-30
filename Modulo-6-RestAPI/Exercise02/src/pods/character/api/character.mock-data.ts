@@ -72,6 +72,7 @@ export const mockCharacterCollection: Character[] = [
     ],
     url: 'https://rickandmortyapi.com/api/character/1/',
     created: '2017-11-04T18:48:46.250Z',
+    bestSentences: [""]
   },
 
   {
@@ -145,6 +146,7 @@ export const mockCharacterCollection: Character[] = [
     ],
     url: 'https://rickandmortyapi.com/api/character/2',
     created: '2017-11-04T18:50:21.651Z',
+    bestSentences: [""]
   }
 ];
 

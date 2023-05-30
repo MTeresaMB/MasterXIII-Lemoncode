@@ -6,6 +6,19 @@ export interface Character {
   type: string;
   gender: string;
   image: string;
+  bestSentences: string[];
+  origin: {
+    name: string;
+    url: string;
+  },
+  location: {
+    name: string;
+    url: string;
+  },
+  episode: string[];
+  url: string;
+  created: string;
+
 }
 
 export const createEmptyCharacter = (): Character => ({
@@ -16,4 +29,17 @@ export const createEmptyCharacter = (): Character => ({
   type: '',
   gender: '',
   image: '',
+  bestSentences: [""],
+  origin: {
+    name: '',
+    url: '',
+  },
+  location: {
+    name: '',
+    url: '',
+  },
+  episode: [""],
+  url: '',
+  created: '',
+
 })
