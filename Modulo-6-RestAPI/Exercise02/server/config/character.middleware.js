@@ -9,7 +9,7 @@ const characterMiddleware = (req, res, next) => {
 };
 
 module.exports = (req, res, next) => {
-  if (req.path === '/characters/create') {
+  if (req.path === '/characters') {
     characterMiddleware(req, res, next);
   } else {
     next();
